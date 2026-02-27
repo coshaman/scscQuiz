@@ -1,0 +1,60 @@
+[
+  {
+    "id": "E1",
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "HTTP 상태코드 404의 의미로 가장 알맞은 것은?",
+    "choices": ["서버 오류", "권한 없음", "리소스를 찾을 수 없음", "리다이렉트"],
+    "answer": 2
+  },
+  {
+    "id": "E2",
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "JS에서 엄격 비교 연산자는 무엇인가요? (기호만)",
+    "answer": ["===", "==="]
+  },
+  {
+    "id": "H1",
+    "difficulty": "Hard",
+    "type": "mcq",
+    "prompt": "다음 중 시간 복잡도가 O(n log n)인 정렬로 가장 적절한 것은?",
+    "choices": ["버블 정렬", "삽입 정렬", "병합 정렬", "선택 정렬"],
+    "answer": 2
+  },
+  {
+    "id": "H2",
+    "difficulty": "Hard",
+    "type": "short",
+    "prompt": "다음 파이썬 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "a = [1, 2, 3]\nprint(a[::-1])"
+    },
+    "answer": ["[3, 2, 1]"]
+  },
+  {
+    "id": "X1",
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "C/C++에서 '정의되지 않은 동작(UB)'에 해당할 가능성이 큰 것은?",
+    "choices": [
+      "0으로 나누기 연산 시도",
+      "초기화되지 않은 포인터 역참조",
+      "문자열 길이 계산",
+      "정수 덧셈"
+    ],
+    "answer": 1
+  },
+  {
+    "id": "X2",
+    "difficulty": "Expert",
+    "type": "short",
+    "prompt": "HTML에서 접근성 측면에서 이미지에 대체 텍스트를 제공하는 속성은?",
+    "code": {
+      "lang": "html",
+      "text": "<img src=\"cat.png\" ____=\"cute cat\" />"
+    },
+    "answer": ["alt"]
+  }
+]
