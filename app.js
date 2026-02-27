@@ -218,7 +218,6 @@ function renderQuestion() {
   const meta = `
     <div class="q-meta">
       <div class="badge">${q.type === "mcq" ? "객관식" : "주관식"}</div>
-      <div class="badge">ID: ${escapeHtml(q.id ?? "-")}</div>
     </div>
   `;
 
