@@ -759,7 +759,7 @@ pre[class*="language-"] {
   color: #032f62 !important;
 }
 .code-wrap::before {
-  content: "main.js";
+  content: "code";
   display: block;
   padding: 8px 14px;
   font-size: 12px;
