@@ -116,7 +116,7 @@ body::after {
 }
 
 .brand::before {
-  content: "tty://";
+  content: "SCSC://";
   color: var(--muted);
 }
 
@@ -847,4 +847,73 @@ pre[class*="language-"] {
 .token {
   opacity: 1 !important;
   filter: none !important;
+}
+
+/* =========================
+   Multiline Answer – Terminal Style
+========================= */
+
+textarea.input {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+
+  padding: 14px 16px;
+
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(140, 255, 140, 0.25);
+  border-radius: 12px;
+
+  color: #c9ffd1;
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.6;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 6px 18px rgba(0, 0, 0, 0.5);
+
+  transition: border-color 0.15s ease,
+              box-shadow 0.15s ease,
+              background 0.15s ease;
+}
+
+/* focus 시 강조 */
+textarea.input:focus {
+  outline: none;
+  border-color: rgba(124, 255, 154, 0.65);
+  background: rgba(0, 0, 0, 0.65);
+
+  box-shadow:
+    0 0 0 2px rgba(124, 255, 154, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* placeholder */
+textarea.input::placeholder {
+  color: rgba(155, 231, 166, 0.55);
+  font-style: italic;
+}
+
+/* 커서 색상 */
+textarea.input {
+  caret-color: #7CFF9A;
+}
+
+/* 스크롤바 (webkit) */
+textarea.input::-webkit-scrollbar {
+  width: 8px;
+}
+
+textarea.input::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+textarea.input::-webkit-scrollbar-thumb {
+  background: rgba(124, 255, 154, 0.35);
+  border-radius: 4px;
+}
+
+textarea.input::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 255, 154, 0.55);
 }

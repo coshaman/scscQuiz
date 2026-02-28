@@ -53,6 +53,18 @@ function normalizeText(s) {
     .replace(/\s+/g, " ")
     .toLowerCase();
 }
+function normalizeMultilineText(s) {
+  const raw = String(s ?? "").replace(/\r\n?/g, "\n");
+
+  // 전체 trim 후 줄 단위로 공백 정리(줄바꿈은 유지)
+  const lines = raw
+    .trim()
+    .split("\n")
+    .map((line) => line.trim().replace(/[ \t]+/g, " ").toLowerCase());
+
+  // 맨 끝/처음 빈 줄은 제거되도록 위에서 trim 처리됨
+  return lines.join("\n");
+}
 
 function nowKSTISOString() {
   return new Date().toISOString();
@@ -320,13 +332,13 @@ function renderQuestion() {
     `;
   } else {
     body = `
-      <div class="answer-input">
-        <input id="shortAnswerInput" class="input" placeholder="정답을 입력하세요" value="${escapeHtml(
-          answer ?? ""
-        )}" />
-        <div class="small muted" style="margin-top:8px;">대소문자/공백은 자동으로 어느 정도 정규화해서 채점합니다.</div>
-      </div>
-    `;
+  <div class="answer-input">
+    <textarea id="shortAnswerInput" class="input" placeholder="정답을 입력하세요" rows="4">${escapeHtml(
+      answer ?? ""
+    )}</textarea>
+    <div class="small muted" style="margin-top:8px;">대소문자/공백은 자동으로 어느 정도 정규화해서 채점합니다.</div>
+  </div>
+`;
   }
 
   questionBox.innerHTML = `${meta}${prompt}${codeBlock}${body}`;
@@ -373,13 +385,13 @@ function isCorrect(q, userAnswer) {
   if (userAnswer === null || userAnswer === undefined) return false;
   if (String(userAnswer).trim() === "") return false;
 
-  const ua = normalizeText(userAnswer);
+  const ua = normalizeMultilineText(userAnswer);
   const ans = q.answer;
 
   if (Array.isArray(ans)) {
-    return ans.some((a) => normalizeText(a) === ua);
+    return ans.some((a) => normalizeMultilineText(a) === ua);
   }
-  return normalizeText(ans) === ua;
+  return normalizeMultilineText(ans) === ua;
 }
 
 function computeScore() {
