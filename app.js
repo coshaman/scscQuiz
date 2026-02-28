@@ -13,7 +13,7 @@ function loadSettings() {
       const s = JSON.parse(raw);
       return {
         timeLimitMin: clampInt(s.timeLimitMin, 1, 999, 5),
-        minCorrectForForm: clampInt(s.minCorrectForForm, 0, 9999, 10)
+        minCorrectForForm: clampInt(s.minCorrectForForm, 0, 9999, 10),
       };
     } catch {}
   }
@@ -55,7 +55,6 @@ function normalizeText(s) {
 }
 
 function nowKSTISOString() {
-  // 브라우저 로컬 시간이 KST(한국)라 가정(행사장 PC 기준)
   return new Date().toISOString();
 }
 
@@ -89,7 +88,7 @@ const questionCountInput = $("questionCountInput");
 const questionBox = $("questionBox");
 const difficultyBadge = $("difficultyBadge");
 const qIndexBadge = $("qIndexBadge");
-const scoreBadge = $("scoreBadge");
+const scoreBadge = $("scoreBadge"); // 이제 점수 배지가 아니라 "정답/오답 팝업"으로 사용
 
 const resultSummary = $("resultSummary");
 const resultDifficulty = $("resultDifficulty");
@@ -119,13 +118,71 @@ let quizQuestions = [];
 let quizDifficulty = "Easy";
 let currentIndex = 0;
 
-// userAnswers: for mcq => number index, for short => string
 let userAnswers = [];
 let timer = {
   totalSec: settings.timeLimitMin * 60,
   remainSec: settings.timeLimitMin * 60,
-  handle: null
+  handle: null,
 };
+
+let isTransitioning = false;
+
+/* =========================
+   Feedback (Popup)
+========================= */
+function setupFeedbackPopup() {
+  // HTML에 이미 badge 클래스로 들어가 있으니, 배지 느낌 제거하고 팝업 클래스로 교체
+  scoreBadge.classList.remove("badge");
+  scoreBadge.classList.add("feedback-pop", "hidden");
+  scoreBadge.textContent = "";
+}
+
+function clearFeedback() {
+  scoreBadge.classList.remove("correct", "wrong", "show");
+  scoreBadge.classList.add("hidden");
+  scoreBadge.textContent = "";
+}
+
+function showFeedback(isCorrectAnswer) {
+  scoreBadge.classList.remove("hidden");
+  scoreBadge.classList.toggle("correct", !!isCorrectAnswer);
+  scoreBadge.classList.toggle("wrong", !isCorrectAnswer);
+  scoreBadge.textContent = isCorrectAnswer ? "정답입니다" : "오답입니다";
+
+  // 애니메이션 트리거
+  scoreBadge.classList.remove("show");
+  void scoreBadge.offsetWidth;
+  scoreBadge.classList.add("show");
+}
+
+/* =========================
+   Run Reset
+========================= */
+function resetRunState() {
+  stopTimer();
+  timerPill.classList.add("hidden");
+
+  quizQuestions = [];
+  currentIndex = 0;
+  userAnswers = [];
+
+  questionBox.innerHTML = "";
+  qIndexBadge.textContent = "- / -";
+  clearFeedback();
+
+  // 퀴즈 화면에서 "이전"은 항상 숨김
+  prevBtn.classList.add("hidden");
+
+  winnerFormBox.classList.add("hidden");
+  resultClear.textContent = "-";
+
+  winnerForm.dataset.correct = "0";
+  winnerForm.dataset.total = "0";
+  winnerForm.dataset.difficulty = "";
+  winnerForm.dataset.cleared = "false";
+
+  isTransitioning = false;
+}
 
 /* =========================
    Load Questions
@@ -203,6 +260,15 @@ function startTimer() {
 /* =========================
    Rendering
 ========================= */
+function escapeHtml(s) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
 function renderQuestion() {
   const q = quizQuestions[currentIndex];
   if (!q) return;
@@ -210,8 +276,11 @@ function renderQuestion() {
   difficultyBadge.textContent = quizDifficulty;
   qIndexBadge.textContent = `${currentIndex + 1} / ${quizQuestions.length}`;
 
-  const currentScore = computeScore().correct;
-  scoreBadge.textContent = `정답 ${currentScore}`;
+  // 문제 바뀔 때마다 피드백 팝업은 지움
+  clearFeedback();
+
+  // 퀴즈 화면에서 "이전"은 항상 숨김
+  prevBtn.classList.add("hidden");
 
   const answer = userAnswers[currentIndex];
 
@@ -262,19 +331,18 @@ function renderQuestion() {
 
   questionBox.innerHTML = `${meta}${prompt}${codeBlock}${body}`;
 
-  // Prism highlight
   if (window.Prism?.highlightAllUnder) {
     window.Prism.highlightAllUnder(questionBox);
   } else if (window.Prism?.highlightAll) {
     window.Prism.highlightAll();
   }
 
-  // Bind events
   if (q.type === "mcq") {
     questionBox.querySelectorAll(".choice-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const idx = Number(btn.getAttribute("data-choice"));
         userAnswers[currentIndex] = idx;
+        // 선택만으로 채점/피드백은 안 함
         renderQuestion();
       });
     });
@@ -285,19 +353,8 @@ function renderQuestion() {
     });
   }
 
-  // Prev/Next 버튼 상태
-  prevBtn.disabled = currentIndex === 0;
   nextBtn.textContent =
     currentIndex === quizQuestions.length - 1 ? "제출" : "다음";
-}
-
-function escapeHtml(s) {
-  return String(s ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
 }
 
 /* =========================
@@ -307,10 +364,15 @@ function isCorrect(q, userAnswer) {
   if (!q) return false;
 
   if (q.type === "mcq") {
-    return Number(userAnswer) === Number(q.answer);
+    if (userAnswer === null || userAnswer === undefined) return false;
+    const ua = Number(userAnswer);
+    if (!Number.isFinite(ua)) return false;
+    return ua === Number(q.answer);
   }
 
-  // short
+  if (userAnswer === null || userAnswer === undefined) return false;
+  if (String(userAnswer).trim() === "") return false;
+
   const ua = normalizeText(userAnswer);
   const ans = q.answer;
 
@@ -337,15 +399,13 @@ function finishQuiz(byTimeout = false) {
   const { correct, total } = computeScore();
   const passed = correct >= settings.minCorrectForForm;
 
-  const cleared = correct === total ? quizDifficulty : "None";
-
   showScreen("result");
   timerPill.classList.add("hidden");
 
   resultDifficulty.textContent = quizDifficulty;
   resultScore.textContent = `${correct} / ${total}`;
   resultTime.textContent = `${settings.timeLimitMin}분`;
-  resultClear.textContent = cleared === "None" ? "미클리어" : `클리어(${cleared})`;
+  resultClear.textContent = passed ? "클리어" : "미클리어";
 
   resultSummary.textContent = byTimeout
     ? `시간 종료! ${correct}개 맞았습니다.`
@@ -353,11 +413,10 @@ function finishQuiz(byTimeout = false) {
 
   winnerFormBox.classList.toggle("hidden", !passed);
 
-  // 폼이 뜨는 기준이면, 안내용으로 난이도/점수 정보를 폼 제출 데이터에 같이 저장
   winnerForm.dataset.correct = String(correct);
   winnerForm.dataset.total = String(total);
   winnerForm.dataset.difficulty = quizDifficulty;
-  winnerForm.dataset.cleared = cleared;
+  winnerForm.dataset.cleared = passed ? "true" : "false";
 }
 
 function loadWinners() {
@@ -403,7 +462,7 @@ function winnersToCSV(list) {
     "difficulty",
     "score",
     "total",
-    "clearedDifficulty"
+    "cleared",
   ];
 
   const lines = [header.join(",")];
@@ -418,7 +477,7 @@ function winnersToCSV(list) {
       w.difficulty,
       String(w.score),
       String(w.total),
-      w.clearedDifficulty
+      String(w.cleared ?? ""),
     ].map((cell) => `"${String(cell ?? "").replaceAll('"', '""')}"`);
     lines.push(row.join(","));
   }
@@ -437,7 +496,7 @@ settingsModal.addEventListener("click", (e) => {
 saveSettingsBtn.addEventListener("click", () => {
   const newSettings = {
     timeLimitMin: clampInt(timeLimitMinInput.value, 1, 999, 5),
-    minCorrectForForm: clampInt(minCorrectForFormInput.value, 0, 9999, 10)
+    minCorrectForForm: clampInt(minCorrectForFormInput.value, 0, 9999, 10),
   };
   settings = newSettings;
   saveSettings(settings);
@@ -445,6 +504,8 @@ saveSettingsBtn.addEventListener("click", () => {
 });
 
 startBtn.addEventListener("click", () => {
+  resetRunState();
+
   quizDifficulty = getSelectedDifficulty();
   const desiredCount = clampInt(questionCountInput.value, 1, 9999, 15);
 
@@ -454,42 +515,60 @@ startBtn.addEventListener("click", () => {
     return;
   }
 
-  quizQuestions = shuffle(picked); // 최종 셔플
+  quizQuestions = shuffle(picked);
   currentIndex = 0;
   userAnswers = Array(quizQuestions.length).fill(null);
 
   resetTimer();
   startTimer();
   showScreen("quiz");
+
+  // 퀴즈 화면에서 "이전"은 항상 숨김
+  prevBtn.classList.add("hidden");
+
   renderQuestion();
 });
 
 quitBtn.addEventListener("click", () => {
   if (confirm("정말 종료할까요? (현재 진행상황은 저장되지 않습니다)")) {
-    stopTimer();
-    timerPill.classList.add("hidden");
+    resetRunState();
     showScreen("start");
   }
 });
 
-prevBtn.addEventListener("click", () => {
-  if (currentIndex > 0) {
-    currentIndex -= 1;
-    renderQuestion();
-  }
-});
+// prevBtn 이벤트는 남겨둬도 되지만, 버튼이 안 보이므로 실사용 불가.
+// (안전하게 noop 처리)
+prevBtn.addEventListener("click", () => {});
 
 nextBtn.addEventListener("click", () => {
-  // 마지막이면 제출
-  if (currentIndex === quizQuestions.length - 1) {
-    finishQuiz(false);
-    return;
-  }
-  currentIndex += 1;
-  renderQuestion();
+  if (isTransitioning) return;
+
+  const q = quizQuestions[currentIndex];
+  const a = userAnswers[currentIndex];
+
+  // '다음' 누르는 순간에만 채점 + 팝업 표시
+  const ok = isCorrect(q, a);
+  showFeedback(ok);
+
+  isTransitioning = true;
+  nextBtn.disabled = true;
+
+  setTimeout(() => {
+    clearFeedback();
+    isTransitioning = false;
+    nextBtn.disabled = false;
+
+    if (currentIndex === quizQuestions.length - 1) {
+      finishQuiz(false);
+      return;
+    }
+    currentIndex += 1;
+    renderQuestion();
+  }, 600);
 });
 
 restartBtn.addEventListener("click", () => {
+  resetRunState();
   showScreen("start");
 });
 
@@ -499,7 +578,7 @@ winnerForm.addEventListener("submit", (e) => {
   const correct = Number(winnerForm.dataset.correct ?? "0");
   const total = Number(winnerForm.dataset.total ?? "0");
   const difficulty = winnerForm.dataset.difficulty ?? "Easy";
-  const clearedDifficulty = winnerForm.dataset.cleared ?? "None";
+  const cleared = winnerForm.dataset.cleared === "true";
 
   const entry = {
     timestamp: nowKSTISOString(),
@@ -510,7 +589,7 @@ winnerForm.addEventListener("submit", (e) => {
     difficulty,
     score: correct,
     total,
-    clearedDifficulty
+    cleared,
   };
 
   if (!entry.name || !entry.studentId || !entry.department || !entry.phone) {
@@ -521,7 +600,6 @@ winnerForm.addEventListener("submit", (e) => {
   addWinner(entry);
   alert("저장 완료!");
 
-  // 다음 사람을 위해 폼 비우기
   nameInput.value = "";
   studentIdInput.value = "";
   deptInput.value = "";
@@ -554,9 +632,10 @@ clearWinnersBtn.addEventListener("click", () => {
    Init
 ========================= */
 (async function init() {
-  // Settings preload into modal inputs
   timeLimitMinInput.value = String(settings.timeLimitMin);
   minCorrectForFormInput.value = String(settings.minCorrectForForm);
+
+  setupFeedbackPopup();
 
   try {
     allQuestions = await loadQuestions();
@@ -567,5 +646,6 @@ clearWinnersBtn.addEventListener("click", () => {
     );
   }
 
+  resetRunState();
   showScreen("start");
 })();
