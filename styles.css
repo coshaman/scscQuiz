@@ -758,3 +758,93 @@ pre[class*="language-"] {
 .token.string {
   color: #032f62 !important;
 }
+.code-wrap::before {
+  content: "main.js";
+  display: block;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #e6e8e6;
+  color: #444;
+  border-bottom: 1px solid #ddd;
+}
+
+/* =========================
+   Code Highlight – Fix low-contrast mint tokens
+   Put this at the VERY END of styles.css
+========================= */
+
+.code-wrap {
+  background: #f6f7f6 !important;
+  border: 1px solid rgba(0, 255, 120, 0.22);
+}
+
+pre,
+pre code,
+code[class*="language-"],
+pre[class*="language-"] {
+  background: transparent !important;
+  color: #111 !important;          /* 기본 글자 진하게 */
+  text-shadow: none !important;
+}
+
+/* ✅ 가장 중요: 민트/연두로 보이던 애들 강제로 어둡게 */
+.token.variable,
+.token.parameter,
+.token.property,
+.token.symbol,
+.token.namespace,
+.token.class-name,
+.token.builtin,
+.token.attr-name,
+.token.tag,
+.token.selector,
+.token.important {
+  color: #111 !important;          /* 거의 검정으로 */
+  font-weight: 600;
+}
+
+/* 연산자/구두점(= * + ; 등) */
+.token.operator,
+.token.punctuation {
+  color: #000 !important;
+  font-weight: 800;
+}
+
+/* 키워드(from, import, let, const 등) */
+.token.keyword {
+  color: #b42318 !important;       /* 진한 레드 */
+  font-weight: 800;
+}
+
+/* 함수/메서드(console.log, appendleft 등) */
+.token.function,
+.token.method {
+  color: #1d4ed8 !important;       /* 진한 블루 */
+  font-weight: 700;
+}
+
+/* 숫자 */
+.token.number {
+  color: #0f766e !important;       /* 진한 teal (민트 아님) */
+  font-weight: 700;
+}
+
+/* 문자열 */
+.token.string,
+.token.char {
+  color: #14532d !important;       /* 진한 그린 */
+  font-weight: 650;
+}
+
+/* 주석 */
+.token.comment {
+  color: #475569 !important;       /* 짙은 회색 */
+  font-style: italic;
+}
+
+/* 혹시 기존 테마가 opacity를 먹여서 흐려지면 이것도 강제 */
+.token {
+  opacity: 1 !important;
+  filter: none !important;
+}
