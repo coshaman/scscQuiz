@@ -90,6 +90,7 @@ body {
 }
 .muted {
   color: var(--muted);
+  display: none;
 }
 
 .hr {
@@ -121,6 +122,7 @@ body {
 .hint {
   font-size: 14px;
   color: var(--muted);
+  display: none;
 }
 
 .input {
