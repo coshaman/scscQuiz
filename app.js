@@ -89,7 +89,7 @@ const minCorrectForFormInput = $("minCorrectForFormInput");
 
 const timerPill = $("timerPill");
 const timerText = $("timerText");
-
+const difficultyDesc = $("difficultyDesc");
 const startBtn = $("startBtn");
 const quitBtn = $("quitBtn");
 const prevBtn = $("prevBtn");
@@ -233,7 +233,22 @@ function getSelectedDifficulty() {
   const el = document.querySelector('input[name="difficulty"]:checked');
   return el?.value ?? "Easy";
 }
+const DIFFICULTY_DESC = {
+  Easy: "비전공자도 컴퓨터에 관심이 있다면 풀 수 있습니다!",
+  Hard: "컴퓨터 관련 학부 저학년이나 컴퓨터에 관심이 많다면 풀 수 있는 난이도입니다.",
+  Expert: "컴퓨터공학부 고학년 수준의 문제입니다. 여러분이 똑똑하다면 풀 수 있을지도 모릅니다.",
+};
 
+function updateDifficultyDesc() {
+  if (!difficultyDesc) return;
+  const d = getSelectedDifficulty();
+  difficultyDesc.textContent = DIFFICULTY_DESC[d] ?? "";
+}
+
+// 시작 화면 난이도 라디오 변경 시 즉시 갱신
+document.querySelectorAll('input[name="difficulty"]').forEach((el) => {
+  el.addEventListener("change", updateDifficultyDesc);
+});
 function pickQuestions(difficulty, count) {
   const pool = allQuestions.filter((q) => q.difficulty === difficulty);
   const shuffled = shuffle(pool);
@@ -657,7 +672,8 @@ clearWinnersBtn.addEventListener("click", () => {
       "questions.json 로드에 실패했습니다. 로컬 서버로 실행 중인지 확인하세요.\n(예: VSCode Live Server)"
     );
   }
-
+  updateDifficultyDesc();
   resetRunState();
   showScreen("start");
+  updateDifficultyDesc();
 })();
