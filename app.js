@@ -760,24 +760,30 @@ winnerForm.addEventListener("submit", (e) => {
   renderScoreboard();
 });
 
-downloadCsvBtn.addEventListener("click", () => {
-  const list = loadWinners();
-  const csv = winnersToCSV(list);
-  downloadText("winners.csv", csv, "text/csv");
-});
+if (downloadCsvBtn) {
+  downloadCsvBtn.addEventListener("click", () => {
+    const list = loadWinners();
+    const csv = winnersToCSV(list);
+    downloadText("winners.csv", csv, "text/csv");
+  });
+}
 
-downloadJsonBtn.addEventListener("click", () => {
-  const list = loadWinners();
-  downloadText("winners.json", JSON.stringify(list, null, 2), "application/json");
-});
+if (downloadJsonBtn) {
+  downloadJsonBtn.addEventListener("click", () => {
+    const list = loadWinners();
+    downloadText("winners.json", JSON.stringify(list, null, 2), "application/json");
+  });
+}
 
-clearWinnersBtn.addEventListener("click", () => {
-  if (confirm("정말 저장된 기록을 초기화할까요?")) {
-    localStorage.removeItem(WINNERS_KEY);
-    alert("초기화 완료");
-    renderScoreboard();
-  }
-});
+if (clearWinnersBtn) {
+  clearWinnersBtn.addEventListener("click", () => {
+    if (confirm("정말 저장된 기록을 초기화할까요?")) {
+      localStorage.removeItem(WINNERS_KEY);
+      alert("초기화 완료");
+      renderScoreboard();
+    }
+  });
+}
 
 /* =========================
    Init
