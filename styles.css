@@ -997,3 +997,124 @@ textarea.input::-webkit-scrollbar-thumb {
 textarea.input::-webkit-scrollbar-thumb:hover {
   background: rgba(124, 255, 154, 0.55);
 }
+
+/* =========================
+   Layout: main + scoreboard
+========================= */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 14px;
+  align-items: start;
+}
+
+.main-col {
+  min-width: 0;
+}
+
+.scoreboard {
+  position: sticky;
+  top: 62px; /* topbar 아래 */
+  max-height: calc(100vh - 84px);
+  overflow: auto;
+}
+
+.sb-section {
+  margin-top: 12px;
+  border-top: 1px dashed var(--line2);
+  padding-top: 12px;
+}
+
+.sb-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.sb-title {
+  font-weight: 900;
+  color: var(--fg);
+}
+
+.sb-table-wrap {
+  margin-top: 10px;
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.18);
+}
+
+.sb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.sb-table th,
+.sb-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(140,255,140,0.10);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.sb-table th {
+  color: var(--fg2);
+  font-weight: 900;
+  background: rgba(0,0,0,0.22);
+}
+
+.sb-table td {
+  color: var(--fg);
+  font-weight: 800;
+}
+
+.sb-table td:last-child {
+  text-align: right;
+}
+
+.sb-table th:last-child {
+  text-align: right;
+}
+
+.winner-auto {
+  border: 1px solid var(--line2);
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(0,0,0,0.18);
+}
+
+.winner-auto-line {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 10px;
+  font-size: 12px;
+  margin: 4px 0;
+}
+
+.winner-auto-line .k {
+  color: var(--fg2);
+  font-weight: 900;
+}
+
+.winner-auto-line .v {
+  color: var(--fg);
+  font-weight: 900;
+}
+
+/* Mobile: scoreboard goes bottom */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .scoreboard {
+    position: static;
+    max-height: none;
+  }
+}
+.rd-flag-only{
+  margin-top: 8px;
+  font-weight: 900;
+  font-size: 13px;
+}

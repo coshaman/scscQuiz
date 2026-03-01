@@ -28,165 +28,232 @@
     </header>
 
     <main class="container">
-      <!-- 시작 화면 -->
-      <section id="screenStart" class="card">
-        <h1 class="title">동아리 행사 퀴즈</h1>
-        <p class="subtitle">난이도 선택 → 시작 → 제한시간 안에 풀기</p>
+      <div class="layout">
+        <div class="main-col">
+          <!-- 시작 화면 -->
+          <section id="screenStart" class="card">
+            <h1 class="title">동아리 행사 퀴즈</h1>
+            <p class="subtitle">난이도 선택 → 시작 → 제한시간 안에 풀기</p>
 
-        <div class="row">
-          <label class="label">난이도</label>
-          <div class="segmented" role="radiogroup" aria-label="난이도 선택">
-            <label class="seg-item">
-              <input type="radio" name="difficulty" value="Easy" checked />
-              <span>Easy</span>
-            </label>
-            <label class="seg-item">
-              <input type="radio" name="difficulty" value="Hard" />
-              <span>Hard</span>
-            </label>
-            <label class="seg-item">
-              <input type="radio" name="difficulty" value="Expert" />
-              <span>Expert</span>
-            </label>
-          </div>
-        </div>
-        <div id="difficultyDesc" class="difficulty-desc small ">
+            <div class="row">
+              <label class="label">난이도</label>
+              <div class="segmented" role="radiogroup" aria-label="난이도 선택">
+                <label class="seg-item">
+                  <input type="radio" name="difficulty" value="Easy" checked />
+                  <span>Easy</span>
+                </label>
+                <label class="seg-item">
+                  <input type="radio" name="difficulty" value="Hard" />
+                  <span>Hard</span>
+                </label>
+                <label class="seg-item">
+                  <input type="radio" name="difficulty" value="Expert" />
+                  <span>Expert</span>
+                </label>
+              </div>
+            </div>
+            <div id="difficultyDesc" class="difficulty-desc small ">
   비전공자도 컴퓨터에 관심있다면 풀 수 있습니다
 </div>
-        <div class="row">
-          <label class="label">문항 수</label>
-          <div class="inline">
-            <input
-              id="questionCountInput"
-              class="input"
-              type="number"
-              min="1"
-              step="1"
-              value="15"
-            />
-            <span class="hint">해당 난이도에서 랜덤으로 뽑아 출제</span>
-          </div>
-        </div>
-
-        <div class="actions">
-          <button id="startBtn" class="btn btn-primary" type="button">
-            시작하기
-          </button>
-        </div>
-
-        <hr class="hr" />
-        <div class="muted">
-          <div class="small">
-            관리자 기능: 설정(⚙)에서 제한시간/폼 표시 기준 정답 수 변경 가능
-          </div>
-        </div>
-      </section>
-
-      <!-- 퀴즈 화면 -->
-      <section id="screenQuiz" class="card hidden">
-        <div class="quiz-head">
-          <div class="progress">
-            <div class="badge" id="difficultyBadge">Easy</div>
-            <div class="badge" id="qIndexBadge">1 / 10</div>
-            <div class="badge" id="scoreBadge">정답 0</div>
-          </div>
-          <button id="quitBtn" class="btn btn-ghost" type="button">종료</button>
-        </div>
-
-        <div id="questionBox" class="question-box">
-          <!-- 렌더링 -->
-        </div>
-
-        <div class="actions">
-          <button id="prevBtn" class="btn btn-ghost" type="button">이전</button>
-          <button id="nextBtn" class="btn btn-primary" type="button">
-            다음
-          </button>
-        </div>
-      </section>
-
-      <!-- 결과 화면 -->
-      <section id="screenResult" class="card hidden">
-        <h2 class="title">결과</h2>
-        <p id="resultSummary" class="subtitle"></p>
-
-        <div class="result-grid">
-          <div class="result-item">
-            <div class="k">난이도</div>
-            <div class="v" id="resultDifficulty">-</div>
-          </div>
-          <div class="result-item">
-            <div class="k">점수</div>
-            <div class="v" id="resultScore">-</div>
-          </div>
-          <div class="result-item">
-            <div class="k">제한시간</div>
-            <div class="v" id="resultTime">-</div>
-          </div>
-          <div class="result-item">
-            <div class="k">클리어</div>
-            <div class="v" id="resultClear">-</div>
-          </div>
-        </div>
-
-        <div class="result-detail">
-          <h3 class="result-detail-title">정답/오답 목록</h3>
-          <div id="resultDetailList" class="result-detail-list"></div>
-        </div>
-
-        <div id="winnerFormBox" class="winner-box hidden">
-          <h3 class="winner-title">🎉 기준 점수 이상! 정보 입력</h3>
-          <p class="small muted">
-            제출 시 브라우저(localStorage)에 저장되며, CSV/JSON으로 내려받을 수 있습니다.
-          </p>
-
-          <form id="winnerForm" class="form">
-            <div class="form-row">
-              <label class="label">이름</label>
-              <input id="nameInput" class="input" required />
-            </div>
-            <div class="form-row">
-              <label class="label">학번</label>
-              <input id="studentIdInput" class="input" required />
-            </div>
-            <div class="form-row">
-              <label class="label">과</label>
-              <input id="deptInput" class="input" required />
-            </div>
-            <div class="form-row">
-              <label class="label">전화번호</label>
-              <input
-                id="phoneInput"
-                class="input"
-                required
-                placeholder="010-0000-0000"
-              />
+            <div class="row">
+              <label class="label">문항 수</label>
+              <div class="inline">
+                <input
+                  id="questionCountInput"
+                  class="input"
+                  type="number"
+                  min="1"
+                  step="1"
+                  value="15"
+                />
+                <span class="hint">해당 난이도에서 랜덤으로 뽑아 출제</span>
+              </div>
             </div>
 
             <div class="actions">
-              <button class="btn btn-primary" type="submit">저장</button>
+              <button id="startBtn" class="btn btn-primary" type="button">
+                시작하기
+              </button>
             </div>
-          </form>
 
-          <div class="actions">
-            <button id="downloadCsvBtn" class="btn btn-ghost" type="button">
-              📥 CSV 다운로드
-            </button>
-            <button id="downloadJsonBtn" class="btn btn-ghost" type="button">
-              📥 JSON 다운로드
-            </button>
-            <button id="clearWinnersBtn" class="btn btn-danger" type="button">
-              🧹 저장 기록 초기화
-            </button>
+            <hr class="hr" />
+            <div class="muted">
+              <div class="small">
+                관리자 기능: 설정(⚙)에서 제한시간/상위 N명 기준 설정 가능
+              </div>
+            </div>
+          </section>
+
+          <!-- 퀴즈 화면 -->
+          <section id="screenQuiz" class="card hidden">
+            <div class="quiz-head">
+              <div class="progress">
+                <div class="badge" id="difficultyBadge">Easy</div>
+                <div class="badge" id="qIndexBadge">1 / 10</div>
+                <div class="badge" id="scoreBadge">정답 0</div>
+              </div>
+              <button id="quitBtn" class="btn btn-ghost" type="button">종료</button>
+            </div>
+
+            <div id="questionBox" class="question-box">
+              <!-- 렌더링 -->
+            </div>
+
+            <div class="actions">
+              <button id="prevBtn" class="btn btn-ghost" type="button">이전</button>
+              <button id="nextBtn" class="btn btn-primary" type="button">
+                다음
+              </button>
+            </div>
+          </section>
+
+          <!-- 결과 화면 -->
+          <section id="screenResult" class="card hidden">
+            <h2 class="title">결과</h2>
+            <p id="resultSummary" class="subtitle"></p>
+
+            <div class="result-grid">
+              <div class="result-item">
+                <div class="k">난이도</div>
+                <div class="v" id="resultDifficulty">-</div>
+              </div>
+              <div class="result-item">
+                <div class="k">점수</div>
+                <div class="v" id="resultScore">-</div>
+              </div>
+              <div class="result-item">
+                <div class="k">제한시간</div>
+                <div class="v" id="resultTime">-</div>
+              </div>
+
+              <div class="result-item">
+                <div class="k">풀이 시간</div>
+                <div class="v" id="resultElapsed">-</div>
+              </div>
+            </div>
+
+            <div class="result-detail">
+              <h3 class="result-detail-title">정답/오답 목록</h3>
+              <div id="resultDetailList" class="result-detail-list"></div>
+            </div>
+
+            <div id="winnerFormBox" class="winner-box hidden">
+              <h3 class="winner-title">🎉 Top N 달성! 정보 입력</h3>
+              <p class="small muted">
+                제출 시 브라우저(localStorage)에 저장되며, CSV/JSON으로 내려받을 수 있습니다.
+              </p>
+
+              <form id="winnerForm" class="form">
+                <div class="winner-auto">
+                  <div class="winner-auto-line"><span class="k">난이도</span><span class="v" id="formDifficulty">-</span></div>
+                  <div class="winner-auto-line"><span class="k">맞춘 수</span><span class="v" id="formScore">-</span></div>
+                  <div class="winner-auto-line"><span class="k">풀이 시간</span><span class="v" id="formElapsed">-</span></div>
+                </div>
+
+                <div class="form-row">
+                  <label class="label">닉네임</label>
+                  <input id="nicknameInput" class="input" required />
+                </div>
+
+                <div class="form-row">
+                  <label class="label">이름</label>
+                  <input id="nameInput" class="input" required />
+                </div>
+                <div class="form-row">
+                  <label class="label">학번</label>
+                  <input id="studentIdInput" class="input" required />
+                </div>
+                <div class="form-row">
+                  <label class="label">과</label>
+                  <input id="deptInput" class="input" required />
+                </div>
+                <div class="form-row">
+                  <label class="label">전화번호</label>
+                  <input
+                    id="phoneInput"
+                    class="input"
+                    required
+                    placeholder="010-0000-0000"
+                  />
+                </div>
+
+                <div class="actions">
+                  <button class="btn btn-primary" type="submit">저장</button>
+                </div>
+              </form>
+
+              <div class="actions">
+                <button id="downloadCsvBtn" class="btn btn-ghost" type="button">
+                  📥 CSV 다운로드
+                </button>
+                <button id="downloadJsonBtn" class="btn btn-ghost" type="button">
+                  📥 JSON 다운로드
+                </button>
+                <button id="clearWinnersBtn" class="btn btn-danger" type="button">
+                  🧹 저장 기록 초기화
+                </button>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button id="restartBtn" class="btn btn-primary" type="button">
+                다시하기
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <!-- ✅ 우측 스코어보드 -->
+        <aside id="scoreboard" class="card scoreboard">
+          <h2 class="title">Scoreboard</h2>
+          <p class="subtitle small">기준: 맞춘 문제 수 ↓ / 동점이면 시간 ↑빠른 순</p>
+
+          <div class="sb-section">
+            <div class="sb-head">
+              <div class="sb-title">Expert</div>
+              <div class="sb-sub small">Top <span id="topNLabelExpert">-</span></div>
+            </div>
+            <div class="sb-table-wrap">
+              <table class="sb-table">
+                <thead>
+                  <tr><th>#</th><th>닉네임</th><th>시간</th><th>맞춘 수</th></tr>
+                </thead>
+                <tbody id="sbBodyExpert"></tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-        <div class="actions">
-          <button id="restartBtn" class="btn btn-primary" type="button">
-            다시하기
-          </button>
-        </div>
-      </section>
+          <div class="sb-section">
+            <div class="sb-head">
+              <div class="sb-title">Hard</div>
+              <div class="sb-sub small">Top <span id="topNLabelHard">-</span></div>
+            </div>
+            <div class="sb-table-wrap">
+              <table class="sb-table">
+                <thead>
+                  <tr><th>#</th><th>닉네임</th><th>시간</th><th>맞춘 수</th></tr>
+                </thead>
+                <tbody id="sbBodyHard"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="sb-section">
+            <div class="sb-head">
+              <div class="sb-title">Easy</div>
+              <div class="sb-sub small">Top <span id="topNLabelEasy">-</span></div>
+            </div>
+            <div class="sb-table-wrap">
+              <table class="sb-table">
+                <thead>
+                  <tr><th>#</th><th>닉네임</th><th>시간</th><th>맞춘 수</th></tr>
+                </thead>
+                <tbody id="sbBodyEasy"></tbody>
+              </table>
+            </div>
+          </div>
+        </aside>
+      </div>
     </main>
 
     <!-- 설정 모달 -->
@@ -213,19 +280,19 @@
           </div>
 
           <div class="form-row">
-            <label class="label">폼 표시 최소 정답 수</label>
+            <label class="label">상위 N명 기준</label>
             <input
-              id="minCorrectForFormInput"
+              id="topNInput"
               class="input"
               type="number"
-              min="0"
+              min="1"
               step="1"
               value="10"
             />
           </div>
 
           <div class="small muted">
-            기본값: 제한시간 5분 / 10문제 이상 맞으면 정보입력 폼 표시
+            기본값: 제한시간 5분 / 난이도별 Top 10만 기록 폼 표시
           </div>
         </div>
 
