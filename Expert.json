@@ -26,67 +26,43 @@
     {
         "difficulty": "Expert",
         "type": "mcq",
-        "prompt": "최대 매칭(이분 매칭)에서 Hopcroft-Karp 알고리즘의 시간 복잡도는?",
+        "prompt": "DNS 레코드에서 ipv6 을 지정하는 레코드 타입은?",
         "choices": [
-            "O(VE)",
-            "O(E sqrt(V))",
-            "O(E log V)",
-            "O(V^2)"
+            "A",
+            "AAAA",
+            "CNAME",
+            "IPV6"
         ],
         "answer": 1
     },
     {
         "difficulty": "Expert",
         "type": "mcq",
-        "prompt": "Convex Hull Trick(동적 CHT)을 적용하기 위한 전형적인 DP 형태로 가장 적절한 것은?",
+        "prompt": "NIC 에 대응되며 Link Layer 에서 컴퓨터의 주소를 지칭하는 코드 체계는?",
         "choices": [
-            "dp[i] = min(dp[i-1], dp[i-2])",
-            "dp[i] = min_j (m[j]*x[i] + b[j])",
-            "dp[i] = sum_{j<=i} a[j]",
-            "dp[i] = gcd(dp[i-1], a[i])"
+            "IP address",
+            "NIC Code",
+            "Share Code",
+            "MAC"
         ],
-        "answer": 1
+        "answer": 3
     },
     {
         "difficulty": "Expert",
         "type": "mcq",
         "prompt": "분산 시스템에서 Linearizability(선형화 가능성)의 의미로 가장 적절한 것은?",
         "choices": [
-            "각 노드가 결국 동일 상태가 된다",
-            "연산들이 어떤 단일 순서로 실행된 것처럼 보이며 실시간 순서를 보존한다",
+            "각 노드가 결국 동일 상태로 수렴한다",
+            "연산들이 즉시 실행된 것처럼 보이며 순서를 보존한다",
             "네트워크 분할이 있어도 가용성을 보장한다",
-            "항상 지연 시간이 최소가 된다"
+            "연산과 동일한 결과를 내는 순차적 실행이 존재한다"
         ],
         "answer": 1
     },
     {
         "difficulty": "Expert",
         "type": "mcq",
-        "prompt": "분산 합의에서 Raft에서 리더가 커밋을 결정할 때 일반적으로 필요한 조건은?",
-        "choices": [
-            "모든 팔로워가 응답",
-            "과반수(quorum) 복제",
-            "최소 1개 팔로워 복제",
-            "네트워크 지연 0"
-        ],
-        "answer": 1
-    },
-    {
-        "difficulty": "Expert",
-        "type": "mcq",
-        "prompt": "Two-Phase Commit(2PC)의 대표적인 약점은?",
-        "choices": [
-            "항상 데이터 손실이 발생",
-            "코디네이터 장애 시 블로킹될 수 있음",
-            "네트워크 분할에 면역",
-            "스냅샷 불가능"
-        ],
-        "answer": 1
-    },
-    {
-        "difficulty": "Expert",
-        "type": "mcq",
-        "prompt": "Transformer의 self-attention(일반적인 full attention)에서 시퀀스 길이를 L, hidden을 d라고 할 때, attention score 계산의 시간/메모리에서 L에 대한 주된 스케일링은?",
+        "prompt": "Self-attention(full attention)에서 시퀀스 길이를 L이라고 할 때, attention score 계산의 시간/메모리에서 L에 대한 스케일링은?",
         "choices": [
             "O(L)",
             "O(L log L)",
@@ -101,31 +77,11 @@
         "prompt": "Knowledge Distillation에서 'teacher' 모델이 제공하는 정보로 가장 흔히 사용하는 것은?",
         "choices": [
             "하드 라벨(one-hot)",
-            "소프트 타깃(로짓/확률 분포)",
-            "가중치 초기값",
-            "배치 크기"
+            "소프트 타깃(확률 분포)",
+            "이미지 맵(확률 이미지)",
+            "정보 엔트로피"
         ],
         "answer": 1
-    },
-    {
-        "difficulty": "Expert",
-        "type": "short",
-        "prompt": "다음 Python 코드의 출력은?",
-        "code": {
-            "lang": "python",
-            "text": "def f(a, b):\n  a += [1]\n  b += (1,)\n  return a, b\nx = [0]\ny = (0,)\nprint(f(x, y))\nprint(x, y)"
-        },
-        "answer": "([0, 1], (0, 1))\n[0, 1] (0,)"
-    },
-    {
-        "difficulty": "Expert",
-        "type": "short",
-        "prompt": "다음 Python 코드의 출력은?",
-        "code": {
-            "lang": "python",
-            "text": "import itertools\nprint(list(itertools.islice(itertools.count(10, 3), 4)))"
-        },
-        "answer": "[10, 13, 16, 19]"
     },
     {
         "difficulty": "Expert",
@@ -139,23 +95,13 @@
     },
     {
         "difficulty": "Expert",
-        "type": "short",
-        "prompt": "다음 Python 코드의 출력은?",
-        "code": {
-            "lang": "python",
-            "text": "def f(n):\n  dp = [0]*(n+1)\n  dp[0] = 1\n  for i in range(1, n+1):\n    dp[i] = dp[i-1] + (dp[i-2] if i-2 >= 0 else 0)\n  return dp[n]\nprint(f(6))"
-        },
-        "answer": "13"
-    },
-    {
-        "difficulty": "Expert",
         "type": "mcq",
-        "prompt": "분산 시스템에서 'Split-brain' 상황과 가장 관련이 큰 원인은?",
+        "prompt": "분산 시스템에서 'Split-brain'의 가장 알맞은 원인은?",
         "choices": [
             "시간 동기화 실패",
-            "네트워크 분할로 다중 리더가 동시에 존재",
-            "디스크 용량 부족",
-            "TLS 인증서 만료"
+            "네트워크 분할로 리더가 둘 이상 존재",
+            "둘 이상의 피연산자가 서로 다른 서버에 존재",
+            "두 서버가 동시에 같은 연산을 스케줄링"
         ],
         "answer": 1
     },
@@ -165,33 +111,9 @@
         "prompt": "다음 Python 코드의 출력은?",
         "code": {
             "lang": "python",
-            "text": "a = [1,2,3]\nprint(a == a[:])"
+            "text": "a = [1,2,3]\nprint(a is a[:])"
         },
-        "answer": "True"
-    },
-    {
-        "difficulty": "Expert",
-        "type": "mcq",
-        "prompt": "Zobrist hashing이 주로 사용되는 분야로 가장 적절한 것은?",
-        "choices": [
-            "DB 정규화",
-            "보드게임 상태 해싱/트랜스포지션 테이블",
-            "TLS 키 교환",
-            "문자열 접두사 트리"
-        ],
-        "answer": 1
-    },
-    {
-        "difficulty": "Expert",
-        "type": "mcq",
-        "prompt": "LLM 추론에서 KV 캐시(Key-Value cache)가 주로 줄여주는 것은?",
-        "choices": [
-            "토크나이저 시간",
-            "이전 토큰들에 대한 어텐션 재계산",
-            "학습 데이터 로딩",
-            "가중치 파일 크기"
-        ],
-        "answer": 1
+        "answer": "False"
     },
     {
         "difficulty": "Expert",
@@ -230,13 +152,317 @@
     {
         "difficulty": "Expert",
         "type": "mcq",
-        "prompt": "EEPROM은 무엇의 약자인가?",
+        "prompt": "EEPROM의 발전형은?",
         "choices": [
-            "Electrically Erasable Programmable Read-Only Memory",
-            "Electronically Expandable Programmable Read-Only Memory",
-            "Electrically Erasable Programmable Random Memory",
-            "Electronically Expandable Programmable Random Memory"
+            "Flash Memory",
+            "SSD",
+            "HBM",
+            "VEEPROM"
         ],
         "answer": 0
+    },
+    {
+        "difficulty": "Expert",
+        "type": "short",
+        "prompt": "리눅스에서 파일의 소유자를 변경하는데 사용하는 명령어는?",
+        "code": {
+            "lang": "bash",
+            "text": "????? user_name file_name"
+        },
+        "answer": "chown"
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "sql 에서 테이블 주소를 변경할 때 사용하는 명령어는?",
+        "choices": [
+            "UPDATE",
+            "ALTER",
+            "CHTABLE",
+            "CREATE"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "DB 인덱스 시스템이 주로 사용하는 알고리즘은?",
+        "choices": [
+            "BST",
+            "Hash Table",
+            "RB Tree",
+            "B+ Tree"
+        ],
+        "answer": 3
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "다음 중 성질이 다른 알고리즘은?",
+        "choices": [
+            "RSA",
+            "ECDSA",
+            "ECC",
+            "SA"
+        ],
+        "answer": 3
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "다음 중 성질이 다른 알고리즘은?",
+        "choices": [
+            "Solovay-Strassen Algorithm",
+            "Miller-Rabin Algorithm",
+            "Johnson's Algorithm",
+            "Baillie-PSW Algorithm"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "다음 중 성질이 다른 알고리즘은?",
+        "choices": [
+            "Bellman-Ford",
+            "Miller-Rabin Algorithm",
+            "Dijkstra",
+            "Floyd-Warshall"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "컴퓨터의 4대 기본구성요소가 아닌 것은?",
+        "choices": [
+            "CPU",
+            "RAM",
+            "GPU",
+            "I/O"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "주로 사용되는 GPU의 성능지표는?",
+        "choices": [
+            "kWh",
+            "FLOPS",
+            "Hz",
+            "CUDA"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "DNS 레코드에서 다른 DNS를 지정하는 레코드 타입은?",
+        "choices": [
+            "REDIRECT",
+            "RCSIV",
+            "CNAME",
+            "SOA"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "NIC 에 대응되며 Link Layer 에서 컴퓨터의 주소를 지칭하는 코드 체계는?",
+        "choices": [
+            "IP address",
+            "NIC Code",
+            "Share Code",
+            "MAC"
+        ],
+        "answer": 3
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "다음중 성질이 다른 하나는?",
+        "choices": [
+            "FTP",
+            "HTTP",
+            "PnP",
+            "AMQP"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "다음중 GC가 있는 언어는?",
+        "choices": [
+            "C",
+            "C++",
+            "Go",
+            "Rust"
+        ],
+        "answer": 3
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "리눅스 df 명령어의 옵션 중 존재하지 않는 것은?",
+        "choices": [
+            "-h",
+            "-p",
+            "-k",
+            "-i"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Expert",
+        "type": "short",
+        "prompt": "다음 JavaScript 코드의 출력은?",
+        "code": {
+            "lang": "javascript",
+            "text": "console.log(4<3<6);"
+        },
+        "answer": "true"
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "GNU gcc 명령어의 옵션 중 존재하지 않는 것은?",
+        "choices": [
+            "-o",
+            "-k",
+            "-s",
+            "-O2"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Expert",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "print(4 < 2 < 6)"
+        },
+        "answer": "False"
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "다음 중 성질이 다른 하나는?",
+        "choices": [
+            "tanh",
+            "ReLU",
+            "GeLU",
+            "ALU"
+        ],
+        "answer": 0
+    },
+    {
+        "difficulty": "Expert",
+        "type": "short",
+        "prompt": "다음 C 코드의 출력은?",
+        "code": {
+            "lang": "c",
+            "text": "#include <stdio.h>\n\nint main(void){\n    int a = 0xf1;\n    printf(\"%d\", a^0xd2);\n    return 0;\n}\n"
+        },
+        "answer": "35"
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "다음중 프로그래밍 언어가 아닌 것은?",
+        "choices": [
+            "Gentoo",
+            "Rust",
+            "Dart",
+            "Kotlin"
+        ],
+        "answer": 0
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "Linux-OS 의 배포판이 아닌 것은?",
+        "choices": [
+            "Fedora",
+            "Arch",
+            "Yum",
+            "Debian"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "다음중 C++20 에서 연산자 우선순위가 가장 낮은 연산자는?",
+        "choices": [
+            "arr[3] 의 [] 연산자",
+            "i&1 의 & 비트연산자",
+            "i++ 의 ++ 연산자",
+            "4+5 의 + 산술연산자"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "sql 에서 테이블 주소를 변경할 때 사용하는 명령어는?",
+        "choices": [
+            "UPDATE",
+            "ALTER",
+            "CHTABLE",
+            "CREATE"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "Linux 쉘이 아닌 것은?",
+        "choices": [
+            "tmux",
+            "zsh",
+            "bash",
+            "ksh"
+        ],
+        "answer": 0
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "A Statistical Test Suite for Random and Pseudorandom Number Generators for Cryptographic Applications의 문서번호는?",
+        "choices": [
+            "DO-178C+DO-254",
+            "NIST SP 800-53",
+            "ISO 26262",
+            "NIST SP 800-22"
+        ],
+        "answer": 3
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "다음 중 성질이 다른 알고리즘은?",
+        "choices": [
+            "Solovay-Strassen Algorithm",
+            "Miller-Rabin Algorithm",
+            "Johnson's Algorithm",
+            "Baillie-PSW Algorithm"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Expert",
+        "type": "mcq",
+        "prompt": "ㅑIntel x86 의 대입연산자는?",
+        "choices": [
+            "=",
+            "mov",
+            "<-",
+            "push"
+        ],
+        "answer": 1
     }
 ]
