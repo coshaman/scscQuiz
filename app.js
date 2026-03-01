@@ -100,13 +100,14 @@ const questionCountInput = $("questionCountInput");
 const questionBox = $("questionBox");
 const difficultyBadge = $("difficultyBadge");
 const qIndexBadge = $("qIndexBadge");
-const scoreBadge = $("scoreBadge"); // 이제 점수 배지가 아니라 "정답/오답 팝업"으로 사용
+const scoreBadge = $("scoreBadge");
 
 const resultSummary = $("resultSummary");
 const resultDifficulty = $("resultDifficulty");
 const resultScore = $("resultScore");
 const resultTime = $("resultTime");
 const resultClear = $("resultClear");
+const resultDetailList = $("resultDetailList");
 const restartBtn = $("restartBtn");
 
 const winnerFormBox = $("winnerFormBox");
@@ -182,11 +183,11 @@ function resetRunState() {
   qIndexBadge.textContent = "- / -";
   clearFeedback();
 
-  // 퀴즈 화면에서 "이전"은 항상 숨김
   prevBtn.classList.add("hidden");
 
   winnerFormBox.classList.add("hidden");
   resultClear.textContent = "-";
+  if (resultDetailList) resultDetailList.innerHTML = "";
 
   winnerForm.dataset.correct = "0";
   winnerForm.dataset.total = "0";
@@ -200,11 +201,23 @@ function resetRunState() {
    Load Questions
 ========================= */
 async function loadQuestions() {
-  const res = await fetch("./questions.json", { cache: "no-store" });
-  if (!res.ok) throw new Error("questions.json 로드 실패");
-  const data = await res.json();
-  if (!Array.isArray(data)) throw new Error("questions.json 형식이 배열이 아님");
-  return data;
+  const files = [
+    "./questions/Easy.json",
+    "./questions/Hard.json",
+    "./questions/Expert.json",
+  ];
+
+  const results = await Promise.all(
+    files.map(async (path) => {
+      const res = await fetch(path, { cache: "no-store" });
+      if (!res.ok) throw new Error(`${path} 로드 실패`);
+      const data = await res.json();
+      if (!Array.isArray(data)) throw new Error(`${path} 형식이 배열이 아님`);
+      return data;
+    })
+  );
+
+  return results.flat();
 }
 
 /* =========================
@@ -303,10 +316,7 @@ function renderQuestion() {
   difficultyBadge.textContent = quizDifficulty;
   qIndexBadge.textContent = `${currentIndex + 1} / ${quizQuestions.length}`;
 
-  // 문제 바뀔 때마다 피드백 팝업은 지움
   clearFeedback();
-
-  // 퀴즈 화면에서 "이전"은 항상 숨김
   prevBtn.classList.add("hidden");
 
   const answer = userAnswers[currentIndex];
@@ -337,7 +347,10 @@ function renderQuestion() {
       <div class="choice-list">
         ${choices
           .map((c, idx) => {
-            const selected = Number(answer) === idx ? "selected" : "";
+            const selected =
+              answer !== null && answer !== undefined && Number(answer) === idx
+                ? "selected"
+                : "";
             return `<button type="button" class="choice-btn ${selected}" data-choice="${idx}">
               ${String.fromCharCode(65 + idx)}. ${escapeHtml(c)}
             </button>`;
@@ -417,6 +430,72 @@ function computeScore() {
   return { correct, total: quizQuestions.length };
 }
 
+function formatMcqAnswer(q, answerIndex) {
+  const choices = Array.isArray(q.choices) ? q.choices : [];
+  const idx = Number(answerIndex);
+  if (!Number.isFinite(idx) || idx < 0 || idx >= choices.length) {
+    return "미선택";
+  }
+  const label = String.fromCharCode(65 + idx);
+  return `${label}. ${choices[idx]}`;
+}
+
+function formatUserAnswer(q, userAnswer) {
+  if (!q) return "";
+
+  if (q.type === "mcq") {
+    return formatMcqAnswer(q, userAnswer);
+  }
+
+  const text = String(userAnswer ?? "").trim();
+  return text ? text : "미작성";
+}
+
+function formatCorrectAnswer(q) {
+  if (!q) return "";
+
+  if (q.type === "mcq") {
+    return formatMcqAnswer(q, q.answer);
+  }
+
+  if (Array.isArray(q.answer)) {
+    return q.answer.join(" / ");
+  }
+  return String(q.answer ?? "");
+}
+
+function renderResultDetails() {
+  if (!resultDetailList) return;
+
+  const items = quizQuestions.map((q, idx) => {
+    const ok = isCorrect(q, userAnswers[idx]);
+    const status = ok ? "정답" : "오답";
+    const userText = formatUserAnswer(q, userAnswers[idx]);
+    const correctText = formatCorrectAnswer(q);
+
+    return `
+      <div class="result-detail-item ${ok ? "correct" : "wrong"}">
+        <div class="result-detail-head">
+          <div class="result-detail-q">Q${idx + 1}. ${escapeHtml(q.prompt)}</div>
+          <div class="result-detail-status">${status}</div>
+        </div>
+        <div class="result-detail-body">
+          <div class="result-detail-line">
+            <span class="k">내 답</span>
+            <span class="v">${escapeHtml(userText)}</span>
+          </div>
+          <div class="result-detail-line">
+            <span class="k">정답</span>
+            <span class="v">${escapeHtml(correctText)}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  resultDetailList.innerHTML = items.join("");
+}
+
 /* =========================
    Finish & Winner Save
 ========================= */
@@ -439,6 +518,7 @@ function finishQuiz(byTimeout = false) {
     : `제출 완료! ${correct}개 맞았습니다.`;
 
   winnerFormBox.classList.toggle("hidden", !passed);
+  renderResultDetails();
 
   winnerForm.dataset.correct = String(correct);
   winnerForm.dataset.total = String(total);
@@ -564,34 +644,15 @@ quitBtn.addEventListener("click", () => {
 });
 
 // prevBtn 이벤트는 남겨둬도 되지만, 버튼이 안 보이므로 실사용 불가.
-// (안전하게 noop 처리)
 prevBtn.addEventListener("click", () => {});
 
 nextBtn.addEventListener("click", () => {
-  if (isTransitioning) return;
-
-  const q = quizQuestions[currentIndex];
-  const a = userAnswers[currentIndex];
-
-  // '다음' 누르는 순간에만 채점 + 팝업 표시
-  const ok = isCorrect(q, a);
-  showFeedback(ok);
-
-  isTransitioning = true;
-  nextBtn.disabled = true;
-
-  setTimeout(() => {
-    clearFeedback();
-    isTransitioning = false;
-    nextBtn.disabled = false;
-
-    if (currentIndex === quizQuestions.length - 1) {
-      finishQuiz(false);
-      return;
-    }
-    currentIndex += 1;
-    renderQuestion();
-  }, 600);
+  if (currentIndex === quizQuestions.length - 1) {
+    finishQuiz(false);
+    return;
+  }
+  currentIndex += 1;
+  renderQuestion();
 });
 
 restartBtn.addEventListener("click", () => {
