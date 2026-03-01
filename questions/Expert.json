@@ -283,13 +283,15 @@
   },
   {
     "difficulty": "Expert",
-    "type": "short",
-    "prompt": "다음 JavaScript 코드의 출력은?",
-    "code": {
-      "lang": "javascript",
-      "text": "console.log(4<3<6);"
-    },
-    "answer": "true"
+    "type": "mcq",
+    "prompt": "다음 중 Bloom Filter의 특징으로 옳은 것은?",
+    "choices": [
+      "1종오류가 발생할 수 있다",
+      "2종오류가 발생할 수 있다",
+      "삭제의 시간복잡도가 O(1)이다",
+      "포함 여부를 정확히 반환한다"
+    ],
+    "answer": 0
   },
   {
     "difficulty": "Expert",
@@ -302,6 +304,18 @@
       "-O2"
     ],
     "answer": 1
+  },
+  {
+    "difficulty": "Hard",
+    "type": "mcq",
+    "prompt": "LCA를 Euler Tour + RMQ로 구할 때, RMQ를 Sparse Table로 구현하면 쿼리 시간 복잡도는?",
+    "choices": [
+      "O(1)",
+      "O(log n)",
+      "O(n)",
+      "O(n log n)"
+    ],
+    "answer": 0
   },
   {
     "difficulty": "Expert",
@@ -362,12 +376,12 @@
   {
     "difficulty": "Expert",
     "type": "mcq",
-    "prompt": "sql 에서 테이블을 변경할 때 사용하는 명령어는?",
+    "prompt": "BCNF 정규화의 필요조건이 아닌 것은?",
     "choices": [
-      "UPDATE",
-      "ALTER",
-      "CHTABLE",
-      "CREATE"
+      "테이블 내의 속성값이 Atomic",
+      "모든 테이블의 모든 속성이 다치 종속적이지 아니하다",
+      "모든 테이블의 모든 속성이 기본키에 완전 함수 종속",
+      "모든 결정자가 후보키에 속한다"
     ],
     "answer": 1
   },
@@ -389,7 +403,7 @@
     "prompt": "STL sort 가 사용하는 Introsort 의 정렬 알고리즘 조합은?",
     "choices": [
       "Heap Sort + Insertion Sort",
-      "Bucket Sort + Heap Sort + Intersion Sort",
+      "Bucket Sort + Heap Sort + Insersion Sort",
       "Quick Sort + Heap Sort + Insertion Sort",
       "Quick Sort + Selection Sort"
     ],
@@ -448,7 +462,7 @@
     "choices": [
       "Asynchronous SIM Integrated Code",
       "Asynchronous System Internal Code",
-      "Application Semicustom Integrated Circuit",
+      "Asynchronous Semicustom Integrated Circuit",
       "Application Specific Integrated Circuit"
     ],
     "answer": 3
