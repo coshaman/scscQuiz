@@ -378,7 +378,7 @@
   {
     "difficulty": "Hard",
     "type": "mcq",
-    "prompt": "에라토스테네스의 체로 1..n까지 소수를 구할 때 시간 복잡도는 보통 어떻게 표현되는가?",
+    "prompt": "소수 정리가 참일때, 에라토스테네스의 체로 1..n까지 소수를 구할 때 시간 복잡도는 보통 어떻게 표현되는가?",
     "choices": [
       "O(n)",
       "O(n log log n)",
@@ -394,7 +394,7 @@
     "choices": [
       "Kruskal",
       "Prim",
-      "Borůvka",
+      "Boruvka",
       "Bellman-Ford"
     ],
     "answer": 3
@@ -425,15 +425,13 @@
   },
   {
     "difficulty": "Hard",
-    "type": "mcq",
-    "prompt": "다음 중 Bloom Filter의 특징으로 옳은 것은?",
-    "choices": [
-      "거짓 음성(false negative)이 발생할 수 있다",
-      "거짓 양성(false positive)이 발생할 수 있다",
-      "삭제가 항상 O(1)로 가능하다",
-      "항상 정확한 포함 여부를 반환한다"
-    ],
-    "answer": 1
+    "type": "short",
+    "prompt": "다음 JavaScript 코드의 출력은?",
+    "code": {
+      "lang": "javascript",
+      "text": "console.log(4<3<6);"
+    },
+    "answer": "true"
   },
   {
     "difficulty": "Hard",
@@ -558,6 +556,18 @@
   {
     "difficulty": "Hard",
     "type": "mcq",
+    "prompt": "HTTP의 약자는?",
+    "choices": [
+      "HyperText Transfer Protocol",
+      "HyperText-Tychonoff Protocol",
+      "HyperText-TextEdit Protocol",
+      "HyperText Transfile Protocol"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Hard",
+    "type": "mcq",
     "prompt": "다음 중 버전 관리에서 '원격 저장소'를 의미하는 것은?",
     "choices": [
       "origin",
@@ -624,18 +634,6 @@
   {
     "difficulty": "Hard",
     "type": "mcq",
-    "prompt": "AES-GCM이 제공하는 보안 속성 조합으로 가장 적절한 것은?",
-    "choices": [
-      "기밀성만",
-      "무결성만",
-      "기밀성 + 무결성(인증)",
-      "부인방지"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Hard",
-    "type": "mcq",
     "prompt": "CORS에서 프리플라이트(preflight) 요청에 사용하는 메서드는?",
     "choices": [
       "GET",
@@ -690,18 +688,6 @@
       "항상 동시성 없음"
     ],
     "answer": 1
-  },
-  {
-    "difficulty": "Hard",
-    "type": "mcq",
-    "prompt": "LCA를 Euler Tour + RMQ로 구할 때, RMQ를 Sparse Table로 구현하면 쿼리 시간 복잡도는?",
-    "choices": [
-      "O(1)",
-      "O(log n)",
-      "O(n)",
-      "O(n log n)"
-    ],
-    "answer": 0
   },
   {
     "difficulty": "Hard",
@@ -838,7 +824,7 @@
   {
     "difficulty": "Hard",
     "type": "mcq",
-    "prompt": "sql 에서 테이블 주소를 변경할 때 사용하는 명령어는?",
+    "prompt": "sql 에서 테이블 구조를 변경할 때 사용하는 명령어는?",
     "choices": [
       "UPDATE",
       "ALTER",
