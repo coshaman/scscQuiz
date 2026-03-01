@@ -164,12 +164,12 @@
     {
         "difficulty": "Expert",
         "type": "short",
-        "prompt": "리눅스에서 파일의 소유자를 변경하는데 사용하는 명령어는?",
+        "prompt": "새로운 프로세스를 만드는 리눅스 시스템 콜은?",
         "code": {
-            "lang": "bash",
-            "text": "????? user_name file_name"
+            "lang": "c",
+            "text": "pid = __?__();"
         },
-        "answer": "chown"
+        "answer": "fork"
     },
     {
         "difficulty": "Expert",
@@ -301,7 +301,7 @@
             "Go",
             "Rust"
         ],
-        "answer": 3
+        "answer": 2
     },
     {
         "difficulty": "Expert",
@@ -357,7 +357,7 @@
             "GeLU",
             "ALU"
         ],
-        "answer": 0
+        "answer": 3
     },
     {
         "difficulty": "Expert",
@@ -408,7 +408,7 @@
     {
         "difficulty": "Expert",
         "type": "mcq",
-        "prompt": "sql 에서 테이블 주소를 변경할 때 사용하는 명령어는?",
+        "prompt": "sql 에서 테이블을 변경할 때 사용하는 명령어는?",
         "choices": [
             "UPDATE",
             "ALTER",
@@ -444,19 +444,19 @@
     {
         "difficulty": "Expert",
         "type": "mcq",
-        "prompt": "다음 중 성질이 다른 알고리즘은?",
+        "prompt": "STL sort 가 사용하는 Introsort 의 정렬 알고리즘 조합은?",
         "choices": [
-            "Solovay-Strassen Algorithm",
-            "Miller-Rabin Algorithm",
-            "Johnson's Algorithm",
-            "Baillie-PSW Algorithm"
+            "Heap Sort + Insertion Sort",
+            "BUcket Sort + Heap Sort + Intersion Sort",
+            "Quick Sort + Heap Sort + Insertion Sort",
+            "Quick Sort + Selection Sort"
         ],
         "answer": 2
     },
     {
         "difficulty": "Expert",
         "type": "mcq",
-        "prompt": "ㅑIntel x86 의 대입연산자는?",
+        "prompt": "Intel x86 의 대입연산자는?",
         "choices": [
             "=",
             "mov",
