@@ -1,0 +1,838 @@
+[
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "Git에서 현재 브랜치의 변경 사항을 임시로 저장해 작업 트리를 깨끗하게 만드는 명령은?",
+        "choices": [
+            "git stash",
+            "git reset --hard",
+            "git commit --amend",
+            "git merge"
+        ],
+        "answer": 0
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "빅오 표기법에서 O(1)은 무엇을 의미하는가?",
+        "choices": [
+            "입력 크기에 비례해 증가",
+            "로그에 비례해 증가",
+            "상수 시간",
+            "제곱에 비례해 증가"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "SQL에서 중복 행을 제거하여 결과를 반환하는 키워드는?",
+        "choices": [
+            "UNIQUE",
+            "DISTINCT",
+            "PRIMARY",
+            "REMOVE"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "TCP의 특징으로 옳은 것은?",
+        "choices": [
+            "비연결형",
+            "신뢰성 있는 전송",
+            "브로드캐스트 전용",
+            "패킷 순서 보장 불가"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 해시 테이블의 평균 탐색 시간 복잡도는?",
+        "choices": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+        ],
+        "answer": 0
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "REST API에서 리소스 생성에 주로 사용하는 HTTP 메서드는?",
+        "choices": [
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "Docker 이미지로 컨테이너를 생성하고 실행하는 기본 명령은?",
+        "choices": [
+            "docker start",
+            "docker run",
+            "docker pull",
+            "docker build"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 대칭 키 암호화 알고리즘은?",
+        "choices": [
+            "RSA",
+            "ECDSA",
+            "AES",
+            "DSA"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "스택(Stack)의 특징으로 옳은 것은?",
+        "choices": [
+            "FIFO",
+            "LIFO",
+            "임의 접근 가능",
+            "정렬 구조"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 NoSQL DB의 대표 예시는?",
+        "choices": [
+            "MySQL",
+            "PostgreSQL",
+            "MongoDB",
+            "SQLite"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "인공지능에서 '학습률(learning rate)'은 무엇을 조절하는 하이퍼파라미터인가?",
+        "choices": [
+            "모델의 층 수",
+            "가중치 업데이트의 크기",
+            "데이터셋 크기",
+            "배치의 개수"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다익스트라 알고리즘이 올바르게 동작하기 위한 간선 가중치 조건은?",
+        "choices": [
+            "음수 가중치가 있어야 한다",
+            "모든 가중치가 0이어야 한다",
+            "음수 가중치가 없어야 한다",
+            "모든 가중치가 동일해야 한다"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "세그먼트 트리로 구간 합을 처리할 때, n개의 원소에 대한 구축(build) 시간 복잡도는?",
+        "choices": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "유니온-파인드(DSU)에서 경로 압축(path compression)과 union by rank를 함께 쓰면, 한 연산의 상각 시간 복잡도는?",
+        "choices": [
+            "O(1)",
+            "O(log n)",
+            "O(α(n))",
+            "O(n)"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "KMP 문자열 검색에서 실패 함수(failure function)가 의미하는 것은?",
+        "choices": [
+            "현재까지 일치한 접두사/접미사 최대 길이",
+            "해시 충돌 횟수",
+            "정렬된 인덱스 목록",
+            "문자 빈도 테이블"
+        ],
+        "answer": 0
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "위상 정렬(Topological sort)이 가능한 그래프의 조건은?",
+        "choices": [
+            "무방향 그래프",
+            "연결 그래프",
+            "사이클이 없는 유향 그래프(DAG)",
+            "완전 그래프"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "최대 유량에서 에드몬즈-카프(Edmonds-Karp) 알고리즘의 시간 복잡도는?",
+        "choices": [
+            "O(VE)",
+            "O(E log V)",
+            "O(VE^2)",
+            "O(E^2)"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 안정 정렬(stable sort)인 것은?",
+        "choices": [
+            "퀵정렬(일반 구현)",
+            "힙정렬",
+            "병합정렬",
+            "선택정렬"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "해시 테이블에서 충돌 해결 방식 중, 같은 버킷에 연결 리스트(또는 동적 배열)로 저장하는 방식은?",
+        "choices": [
+            "Open addressing",
+            "Chaining",
+            "Perfect hashing",
+            "Cuckoo hashing"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 교착 상태(Deadlock)의 필요 조건 4가지에 포함되지 않는 것은?",
+        "choices": [
+            "상호 배제",
+            "점유와 대기",
+            "비선점",
+            "우선순위 역전"
+        ],
+        "answer": 3
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "CAP 정리에서 'P'는 무엇을 의미하는가?",
+        "choices": [
+            "Privacy",
+            "Partition tolerance",
+            "Performance",
+            "Persistence"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "트랜잭션 격리 수준에서 Phantom Read를 방지하는 가장 일반적인 수준은?",
+        "choices": [
+            "READ UNCOMMITTED",
+            "READ COMMITTED",
+            "REPEATABLE READ",
+            "SERIALIZABLE"
+        ],
+        "answer": 3
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "BFS로 무가중치 그래프 최단거리를 구할 때, 큐에서 노드를 pop하는 순서가 보장하는 성질은?",
+        "choices": [
+            "항상 사전순",
+            "항상 깊이 우선",
+            "거리(간선 수) 비내림차순",
+            "가중치 합 최소"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "def f(x, acc=[]):\n  acc.append(x)\n  return acc\nprint(f(1))\nprint(f(2))"
+        },
+        "answer": "[1]\n[1, 2]"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "a = [1, 2, 3, 4]\na[1:3] = [9]\nprint(a)"
+        },
+        "answer": "[1, 9, 4]"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 JavaScript 코드의 출력은?",
+        "code": {
+            "lang": "javascript",
+            "text": "let a = [1,2,3];\nlet b = a;\nb.push(4);\nconsole.log(a.length, b.length);"
+        },
+        "answer": "4 4"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 C 코드의 출력은?",
+        "code": {
+            "lang": "c",
+            "text": "#include <stdio.h>\nint main(){\n  int a = 1;\n  int b = a++ + ++a;\n  printf(\"%d %d\", a, b);\n  return 0;\n}"
+        },
+        "answer": "3 4"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 C++ 코드의 출력은?",
+        "code": {
+            "lang": "cpp",
+            "text": "#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n  vector<int> v = {1,2,3,4,5};\n  cout << accumulate(v.begin(), v.end(), 0);\n  return 0;\n}"
+        },
+        "answer": "15"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "from collections import deque\nq = deque([1,2,3])\nq.appendleft(0)\nq.pop()\nprint(list(q))"
+        },
+        "answer": "[0, 1, 2]"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "def g(n):\n  if n == 0:\n    return 1\n  return n * g(n-1)\nprint(g(5))"
+        },
+        "answer": "120"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 JavaScript 코드의 출력은?",
+        "code": {
+            "lang": "javascript",
+            "text": "console.log([1,2,3].map(x => x*x).filter(x => x > 3).join(\",\"));"
+        },
+        "answer": "4,9"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "s = set([1,2,3])\ns.add(2)\ns.remove(1)\nprint(len(s), 1 in s, 2 in s)"
+        },
+        "answer": "2 False True"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "import heapq\nh = []\nfor x in [5,1,4,2]:\n  heapq.heappush(h, x)\nprint(heapq.heappop(h), heapq.heappop(h))"
+        },
+        "answer": "1 2"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "에라토스테네스의 체로 1..n까지 소수를 구할 때 시간 복잡도는 보통 어떻게 표현되는가?",
+        "choices": [
+            "O(n)",
+            "O(n log log n)",
+            "O(n log n)",
+            "O(log n)"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 '최소 스패닝 트리(MST)'를 구하는 알고리즘이 아닌 것은?",
+        "choices": [
+            "Kruskal",
+            "Prim",
+            "Borůvka",
+            "Bellman-Ford"
+        ],
+        "answer": 3
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "신경망에서 Batch Normalization이 주로 완화하려는 문제로 알려진 것은?",
+        "choices": [
+            "Gradient clipping 필요성",
+            "Internal covariate shift",
+            "Label leakage",
+            "Data augmentation"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "SCC(강한 연결 요소)를 O(V+E)에 구하는 대표 알고리즘은?",
+        "choices": [
+            "Kruskal",
+            "Tarjan",
+            "Dijkstra",
+            "Floyd-Warshall"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 Bloom Filter의 특징으로 옳은 것은?",
+        "choices": [
+            "거짓 음성(false negative)이 발생할 수 있다",
+            "거짓 양성(false positive)이 발생할 수 있다",
+            "삭제가 항상 O(1)로 가능하다",
+            "항상 정확한 포함 여부를 반환한다"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "JWT를 검증할 때 일반적으로 필요한 것은?",
+        "choices": [
+            "클라이언트의 로컬스토리지",
+            "서명 검증용 키",
+            "DNS 레코드",
+            "쿠키의 SameSite 값"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "최소 비용 최대 유량(MCMF)에서 잠재치(potential)를 사용하는 이유로 가장 적절한 것은?",
+        "choices": [
+            "음수 사이클을 만들기 위해",
+            "음수 간선 비용을 제거(재가중치)해 다익스트라를 쓰기 위해",
+            "정점 수를 줄이기 위해",
+            "유량 보존을 깨기 위해"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "x = [0]\ndef h():\n  x[0] += 1\n  return x[0]\nprint(h() + h())\nprint(x[0])"
+        },
+        "answer": "3\n2"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 JavaScript 코드의 출력은?",
+        "code": {
+            "lang": "javascript",
+            "text": "console.log(typeof NaN);"
+        },
+        "answer": "number"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 JavaScript 코드의 출력은?",
+        "code": {
+            "lang": "javascript",
+            "text": "console.log(NaN === NaN);"
+        },
+        "answer": "false"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 JavaScript 코드의 출력은?",
+        "code": {
+            "lang": "javascript",
+            "text": "let x = 0;\nconsole.log(x || 42);"
+        },
+        "answer": "42"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 C++ 코드의 출력은?",
+        "code": {
+            "lang": "cpp",
+            "text": "#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n  vector<int> v = {3,1,2};\n  sort(v.begin(), v.end());\n  cout << v[0] << v[1] << v[2];\n  return 0;\n}"
+        },
+        "answer": "123"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 C++ 코드의 출력은?",
+        "code": {
+            "lang": "cpp",
+            "text": "#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n  string s = \"abba\";\n  reverse(s.begin(), s.end());\n  cout << s;\n  return 0;\n}"
+        },
+        "answer": "abba"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "HTTP에서 요청 본문(body)에 JSON을 담아 보낼 때 흔히 쓰는 Content-Type은?",
+        "choices": [
+            "text/plain",
+            "application/xml",
+            "application/json",
+            "multipart/form-data"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 XSS 방어에 가장 직접적인 방법은?",
+        "choices": [
+            "입력/출력 시 적절한 이스케이프",
+            "비밀번호 해시",
+            "DB 인덱스 생성",
+            "TCP 재전송 비활성화"
+        ],
+        "answer": 0
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "쿠키(Cookie)의 HttpOnly 옵션이 주로 막는 것은?",
+        "choices": [
+            "CSRF",
+            "브루트포스",
+            "JavaScript에서 쿠키 접근",
+            "SQL Injection"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 버전 관리에서 '원격 저장소'를 의미하는 것은?",
+        "choices": [
+            "origin",
+            "HEAD",
+            "stash",
+            "index"
+        ],
+        "answer": 0
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "DB에서 기본키(Primary Key)의 특징으로 옳은 것은?",
+        "choices": [
+            "중복 가능",
+            "NULL 가능",
+            "각 행을 유일하게 식별",
+            "항상 문자열"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "펜윅 트리(Fenwick tree, BIT)로 구간 합을 처리할 때 한 업데이트/쿼리의 시간 복잡도는?",
+        "choices": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "def foo():\n  return [lambda: i for i in range(3)]\nfs = foo()\nprint([f() for f in fs])"
+        },
+        "answer": "[2, 2, 2]"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "def foo():\n  return [lambda i=i: i for i in range(3)]\nfs = foo()\nprint([f() for f in fs])"
+        },
+        "answer": "[0, 1, 2]"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 C++ 코드의 출력은?",
+        "code": {
+            "lang": "cpp",
+            "text": "#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n  map<int,int> m;\n  m[2] = 10;\n  m[1] = 20;\n  for (auto &p: m) cout << p.first;\n  return 0;\n}"
+        },
+        "answer": "12"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "AES-GCM이 제공하는 보안 속성 조합으로 가장 적절한 것은?",
+        "choices": [
+            "기밀성만",
+            "무결성만",
+            "기밀성 + 무결성(인증)",
+            "부인방지"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "CORS에서 프리플라이트(preflight) 요청에 사용하는 메서드는?",
+        "choices": [
+            "GET",
+            "POST",
+            "OPTIONS",
+            "HEAD"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "Min-Cut Max-Flow 정리에 따르면 최대 유량 값은 무엇과 같은가?",
+        "choices": [
+            "최대 매칭 크기",
+            "최소 컷 용량",
+            "최소 스패닝 트리 가중치",
+            "최단거리 합"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "A* 탐색이 최단 경로를 보장하기 위한 휴리스틱 h의 조건으로 대표적인 것은?",
+        "choices": [
+            "항상 실제 비용보다 커야 함",
+            "항상 0이어야 함",
+            "실제 비용을 초과하지 않는(admissible) 휴리스틱",
+            "임의의 랜덤 값"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "import math\nprint(int(math.sqrt(15))**2 == 15)"
+        },
+        "answer": "False"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 '비동기'를 가장 잘 설명하는 것은?",
+        "choices": [
+            "한 작업이 끝나야 다음 작업 시작",
+            "작업 완료를 기다리지 않고 다음 흐름 진행",
+            "항상 단일 스레드",
+            "항상 동시성 없음"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "LCA를 Euler Tour + RMQ로 구할 때, RMQ를 Sparse Table로 구현하면 쿼리 시간 복잡도는?",
+        "choices": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+        ],
+        "answer": 0
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "def solve(a):\n  a.sort()\n  s = 0\n  for i, x in enumerate(a):\n    s += (i+1)*x\n  return s\nprint(solve([3,1,2]))"
+        },
+        "answer": "14"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 JavaScript 코드의 출력은?",
+        "code": {
+            "lang": "javascript",
+            "text": "const a = {x:1};\nconst b = {x:1};\nconsole.log(a == b);"
+        },
+        "answer": "false"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 C++ 코드의 출력은?",
+        "code": {
+            "lang": "cpp",
+            "text": "#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n  vector<int> v = {1,2,3,4};\n  cout << count_if(v.begin(), v.end(), [](int x){ return x%2==0; });\n  return 0;\n}"
+        },
+        "answer": "2"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 '비용이 음수일 수 있는' 최단거리 문제를 일반적으로 처리할 수 있는 알고리즘은?",
+        "choices": [
+            "Dijkstra",
+            "Bellman-Ford",
+            "Prim",
+            "Kruskal"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "Min-Plus Convolution이 직접적으로 등장하는 대표 문제 유형은?",
+        "choices": [
+            "문자열 해싱",
+            "최단거리/DP에서의 (min, +) 형태 결합",
+            "정수 소인수분해",
+            "위상 정렬"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "def f():\n  try:\n    return 1\n  finally:\n    return 2\nprint(f())"
+        },
+        "answer": "2"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "다음 중 정렬 알고리즘 중 평균 시간복잡도가 O(n log n)인 것은?",
+        "choices": [
+            "버블 정렬",
+            "삽입 정렬",
+            "병합 정렬",
+            "선택 정렬"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "FFT를 이용해 다항식 곱을 계산할 때 전형적인 시간 복잡도는?",
+        "choices": [
+            "O(n)",
+            "O(n log n)",
+            "O(n^2)",
+            "O(log n)"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "Floyd-Warshall 알고리즘의 시간 복잡도는?",
+        "choices": [
+            "O(V+E)",
+            "O(VE)",
+            "O(V^3)",
+            "O(E log V)"
+        ],
+        "answer": 2
+    },
+    {
+        "difficulty": "Hard",
+        "type": "mcq",
+        "prompt": "Sparse Table로 정적 RMQ를 처리할 때, 전처리 시간 복잡도는?",
+        "choices": [
+            "O(n)",
+            "O(n log n)",
+            "O(log n)",
+            "O(n^2)"
+        ],
+        "answer": 1
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "a = [1,2,3,4,5]\nprint(a[::-2])"
+        },
+        "answer": "[5, 3, 1]"
+    },
+    {
+        "difficulty": "Hard",
+        "type": "short",
+        "prompt": "다음 Python 코드의 출력은?",
+        "code": {
+            "lang": "python",
+            "text": "s = \"aaab\"\nprint(s.replace(\"a\",\"aa\"))"
+        },
+        "answer": "aaaaaab"
+    }
+]
