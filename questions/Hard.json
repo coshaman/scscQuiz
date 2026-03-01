@@ -862,6 +862,18 @@
   {
     "difficulty": "Hard",
     "type": "mcq",
+    "prompt": "CSS에서 요소를 숨기되 레이아웃 공간도 제거하는 속성/값 조합은?",
+    "choices": [
+      "visibility: hidden",
+      "opacity: 0",
+      "display: none",
+      "position: absolute"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Hard",
+    "type": "mcq",
     "prompt": "Linux 쉘이 아닌 것은?",
     "choices": [
       "tmux",
@@ -870,6 +882,18 @@
       "ksh"
     ],
     "answer": 0
+  },
+  {
+    "difficulty": "Hard",
+    "type": "mcq",
+    "prompt": "Python에서 예외를 발생시키는 키워드는?",
+    "choices": [
+      "throw",
+      "raise",
+      "except",
+      "panic"
+    ],
+    "answer": 1
   },
   {
     "difficulty": "Hard",

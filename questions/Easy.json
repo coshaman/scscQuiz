@@ -14,18 +14,6 @@
   {
     "difficulty": "Easy",
     "type": "mcq",
-    "prompt": "Python에서 리스트의 길이를 구하는 내장 함수는?",
-    "choices": [
-      "size()",
-      "count()",
-      "len()",
-      "length()"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
     "prompt": "JavaScript에서 엄격 동등 비교 연산자는?",
     "choices": [
       "==",
@@ -166,18 +154,6 @@
   {
     "difficulty": "Easy",
     "type": "mcq",
-    "prompt": "CSS에서 요소를 숨기되 레이아웃 공간도 제거하는 속성/값 조합은?",
-    "choices": [
-      "visibility: hidden",
-      "opacity: 0",
-      "display: none",
-      "position: absolute"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
     "prompt": "Python에서 키-값 쌍을 저장하는 자료구조는?",
     "choices": [
       "list",
@@ -250,18 +226,6 @@
       "?",
       "&",
       "/"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "Python에서 예외를 발생시키는 키워드는?",
-    "choices": [
-      "throw",
-      "raise",
-      "except",
-      "panic"
     ],
     "answer": 1
   },
@@ -378,10 +342,10 @@
     "type": "mcq",
     "prompt": "SCSC 동아리방은 몇 동에 위치할까?",
     "choices": [
-      "63동",
-      "28동",
-      "301동",
-      "223동"
+      "63동 학생회관",
+      "28동 대형강의동",
+      "301동 제2공학관",
+      "223동 우석경제관"
     ],
     "answer": 0
   },

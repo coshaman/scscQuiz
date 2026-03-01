@@ -362,7 +362,7 @@
   {
     "difficulty": "Expert",
     "type": "mcq",
-    "prompt": "sql 에서 테이블을 변경할 때 사용하는 명령어는?",
+    "prompt": "sql 에서 테이블 구조를 변경할 때 사용하는 명령어는?",
     "choices": [
       "UPDATE",
       "ALTER",
@@ -448,7 +448,7 @@
     "choices": [
       "Asynchronous SIM Integrated Code",
       "Asynchronous System Internal Code",
-      "Application Semicustom Integrated Circuit",
+      "Asynchronous Semicustom Integrated Circuit",
       "Application Specific Integrated Circuit"
     ],
     "answer": 3
