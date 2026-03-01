@@ -254,7 +254,7 @@ function updateDifficultyDesc() {
   const map = {
     Easy: "비전공자도 컴퓨터에 관심있다면 풀 수 있습니다",
     Hard: "알고리즘/CS 기초가 있다면 도전해볼 만합니다",
-    Expert: "백준 골드~플래티넘 + 실무 함정급 난이도입니다",
+    Expert: "당신이 CS의 신이라는 것을 증명해보세요",
   };
   if (difficultyDesc) difficultyDesc.textContent = map[d] ?? "";
 }
