@@ -1,858 +1,5 @@
 [
   {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "HTTP 상태 코드 404의 의미는?",
-    "choices": [
-      "서버 내부 오류",
-      "권한 없음",
-      "페이지를 찾을 수 없음",
-      "성공"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "Python에서 리스트의 길이를 구하는 내장 함수는?",
-    "choices": [
-      "size()",
-      "count()",
-      "len()",
-      "length()"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "JavaScript에서 엄격 동등 비교 연산자는?",
-    "choices": [
-      "==",
-      "===",
-      "=",
-      "!=="
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "HTML에서 하이퍼링크를 만드는 태그는?",
-    "choices": [
-      "<link>",
-      "<a>",
-      "<href>",
-      "<p>"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "OSI 7계층에서 IP가 속하는 계층은?",
-    "choices": [
-      "물리 계층",
-      "데이터 링크 계층",
-      "네트워크 계층",
-      "전송 계층"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "머신러닝에서 학습 데이터에 과도하게 맞춰져 일반화 성능이 떨어지는 현상은?",
-    "choices": [
-      "Underfitting",
-      "Overfitting",
-      "Dropout",
-      "Batching"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "정렬된 배열에서 원소를 찾을 때 일반적으로 사용하는 탐색 방법은?",
-    "choices": [
-      "선형 탐색",
-      "이진 탐색",
-      "DFS",
-      "BFS"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 Python 코드의 출력은?",
-    "code": {
-      "lang": "python",
-      "text": "a = [1, 2, 3]\na.append(4)\nprint(len(a), a[0], a[-1])"
-    },
-    "answer": "4 1 4"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 JavaScript 코드의 출력은?",
-    "code": {
-      "lang": "javascript",
-      "text": "let x = 3;\nconsole.log(x * 2 + 1);"
-    },
-    "answer": "7"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 Python 코드의 출력은?",
-    "code": {
-      "lang": "python",
-      "text": "s = \"abc\"\nprint(s.upper())"
-    },
-    "answer": "ABC"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 C 코드의 출력은?",
-    "code": {
-      "lang": "c",
-      "text": "#include <stdio.h>\nint main(){\n  int a = 5;\n  printf(\"%d\", a/2);\n  return 0;\n}"
-    },
-    "answer": "2"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 Python 코드의 출력은?",
-    "code": {
-      "lang": "python",
-      "text": "print(10 // 3, 10 % 3)"
-    },
-    "answer": "3 1"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 JavaScript 코드의 출력은?",
-    "code": {
-      "lang": "javascript",
-      "text": "console.log(\"5\" + 2);\nconsole.log(\"5\" - 1);"
-    },
-    "answer": "52\n4"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 Python 코드의 출력은?",
-    "code": {
-      "lang": "python",
-      "text": "x = 0\nfor i in range(5):\n  x += i\nprint(x)"
-    },
-    "answer": "10"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 C++ 코드의 출력은?",
-    "code": {
-      "lang": "cpp",
-      "text": "#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n  vector<int> v = {1,2,3};\n  cout << v.size();\n  return 0;\n}"
-    },
-    "answer": "3"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "CSS에서 요소를 숨기되 레이아웃 공간도 제거하는 속성/값 조합은?",
-    "choices": [
-      "visibility: hidden",
-      "opacity: 0",
-      "display: none",
-      "position: absolute"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "Python에서 키-값 쌍을 저장하는 자료구조는?",
-    "choices": [
-      "list",
-      "tuple",
-      "dict",
-      "set"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "다음 중 2진수 1010을 10진수로 바꾸면?",
-    "choices": [
-      "8",
-      "9",
-      "10",
-      "12"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 Python 코드의 출력은?",
-    "code": {
-      "lang": "python",
-      "text": "d = {\"a\": 1, \"b\": 2}\nprint(d.get(\"c\", 10))"
-    },
-    "answer": "10"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 C 코드의 출력은?",
-    "code": {
-      "lang": "c",
-      "text": "#include <stdio.h>\nint main(){\n  printf(\"%d\", (int)('c' - 'a'));\n  return 0;\n}"
-    },
-    "answer": "2"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 JavaScript 코드의 출력은?",
-    "code": {
-      "lang": "javascript",
-      "text": "console.log([\"a\",\"b\"].length);"
-    },
-    "answer": "2"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "다음 중 Linux에서 현재 디렉토리의 파일 목록을 보는 명령은?",
-    "choices": [
-      "cd",
-      "ls",
-      "pwd",
-      "rm"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "URL에서 쿼리 스트링이 시작되는 기호는?",
-    "choices": [
-      "#",
-      "?",
-      "&",
-      "/"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "Python에서 예외를 발생시키는 키워드는?",
-    "choices": [
-      "throw",
-      "raise",
-      "except",
-      "panic"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 Python 코드의 출력은?",
-    "code": {
-      "lang": "python",
-      "text": "print(\"-\".join([\"a\",\"b\",\"c\"]))"
-    },
-    "answer": "a-b-c"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 JavaScript 코드의 출력은?",
-    "code": {
-      "lang": "javascript",
-      "text": "console.log(Math.max(3, 7, 2));"
-    },
-    "answer": "7"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 JavaScript 코드의 출력은?",
-    "code": {
-      "lang": "javascript",
-      "text": "console.log(0.1 + 0.2 === 0.3);"
-    },
-    "answer": "false"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 Python 코드의 출력은?",
-    "code": {
-      "lang": "python",
-      "text": "print(sum([1,2,3,4]))"
-    },
-    "answer": "10"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "다음 중 '클라이언트-서버' 모델의 예로 가장 적절한 것은?",
-    "choices": [
-      "브라우저-웹서버",
-      "키보드-모니터",
-      "CPU-캐시",
-      "RAM-SSD"
-    ],
-    "answer": 0
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 Python 코드의 출력은?",
-    "code": {
-      "lang": "python",
-      "text": "print(\"Hello\"[1:4])"
-    },
-    "answer": "ell"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
-    "prompt": "다음 Python 코드의 출력은?",
-    "code": {
-      "lang": "python",
-      "text": "x = 1\nfor _ in range(5):\n  x = (x * 2) % 7\nprint(x)"
-    },
-    "answer": "4"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "다음 중 시간복잡도가 가장 느린(성장률이 큰) 것은?",
-    "choices": [
-      "O(n)",
-      "O(n log n)",
-      "O(n^2)",
-      "O(log n)"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "다음 중 JSON의 타입이 아닌 것은?",
-    "choices": [
-      "number",
-      "string",
-      "boolean",
-      "function"
-    ],
-    "answer": 3
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "다음 중 'HTTP'에 비해 'HTTPS'가 제공하는 핵심 효과는?",
-    "choices": [
-      "압축",
-      "암호화 및 무결성 보호",
-      "DB 트랜잭션",
-      "캐시 무효화"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "SCSC 동아리방은 몇 동에 위치할까?",
-    "choices": [
-      "63동",
-      "28동",
-      "301동",
-      "223동"
-    ],
-    "answer": 0
-  },
-  {
-    "difficulty": "Easy",
-    "type": "mcq",
-    "prompt": "SCSC 출신 선배가 설립한 기업이 아닌 것은?",
-    "choices": [
-      "한글과 컴퓨터",
-      "한메소프트",
-      "NC소프트",
-      "삼성전자"
-    ],
-    "answer": 3
-  },
-  
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "Suffix Array를 O(n log n)에 구축하는 대표적인 접근으로 흔히 쓰이는 것은?",
-    "choices": [
-      "Doubling",
-      "Kruskal",
-      "Kosaraju",
-      "Mo's algorithm"
-    ],
-    "answer": 0
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "트리에서 LCA를 구하는 이진 점프(Binary Lifting) 전처리 시간 복잡도는?",
-    "choices": [
-      "O(n)",
-      "O(n log n)",
-      "O(log n)",
-      "O(n^2)"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "DNS 레코드에서 ipv6 을 지정하는 레코드 타입은?",
-    "choices": [
-      "A",
-      "AAAA",
-      "CNAME",
-      "IPV6"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "NIC 에 대응되며 Link Layer 에서 컴퓨터의 주소를 지칭하는 코드 체계는?",
-    "choices": [
-      "IP address",
-      "NIC Code",
-      "Share Code",
-      "MAC"
-    ],
-    "answer": 3
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "분산 시스템에서 Linearizability(선형화 가능성)의 의미로 가장 적절한 것은?",
-    "choices": [
-      "각 노드가 결국 동일 상태로 수렴한다",
-      "연산들이 즉시 실행된 것처럼 보이며 순서를 보존한다",
-      "네트워크 분할이 있어도 가용성을 보장한다",
-      "연산과 동일한 결과를 내는 순차적 실행이 존재한다"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "Self-attention(full attention)에서 시퀀스 길이를 L이라고 할 때, attention score 계산의 시간/메모리에서 L에 대한 스케일링은?",
-    "choices": [
-      "O(L)",
-      "O(L log L)",
-      "O(L^2)",
-      "O(2^L)"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "Knowledge Distillation에서 'teacher' 모델이 제공하는 정보로 가장 흔히 사용하는 것은?",
-    "choices": [
-      "하드 라벨(one-hot)",
-      "소프트 타깃(확률 분포)",
-      "이미지 맵(확률 이미지)",
-      "정보 엔트로피"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "short",
-    "prompt": "다음 JavaScript 코드의 출력은?",
-    "code": {
-      "lang": "javascript",
-      "text": "console.log(+[[[[!![]+!![]+!![]]*[!![]+!![]]]+[[]*!![]]]]);"
-    },
-    "answer": "60"
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "분산 시스템에서 'Split-brain'의 가장 알맞은 원인은?",
-    "choices": [
-      "시간 동기화 실패",
-      "네트워크에 리더가 둘 이상 존재",
-      "둘 이상의 피연산자가 서로 다른 서버에 존재",
-      "두 서버가 동시에 같은 연산을 스케줄링"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "short",
-    "prompt": "다음 Python 코드의 출력은?",
-    "code": {
-      "lang": "python",
-      "text": "a = [1,2,3]\nprint(a is a[:])"
-    },
-    "answer": "False"
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "다음 중 CPU에서 가장 빠르게 데이터를 받아올 수 있는 저장공간은?",
-    "choices": [
-      "L1 cache",
-      "L2 cache",
-      "L3 cache",
-      "DRAM"
-    ],
-    "answer": 0
-  },
-  {
-    "difficulty": "Expert",
-    "type": "short",
-    "prompt": "다음 C 코드의 출력은?",
-    "code": {
-      "lang": "c",
-      "text": "#include <stdio.h>\n#define SQUARE(x) x*x\n\nint main(void){\n    int a = 3;\n    printf(\"%d\", SQUARE(a+1));\n    return 0;\n}\n"
-    },
-    "answer": "7"
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "NVME는 무엇의 약자인가?",
-    "choices": [
-      "Non-Volatile Memory Express",
-      "Non-Volatile Memory Engine",
-      "Network Volatile Memory Extension",
-      "Non-Variable Memory Express"
-    ],
-    "answer": 0
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "EEPROM의 발전형은?",
-    "choices": [
-      "Flash Memory",
-      "SSD",
-      "HBM",
-      "VEEPROM"
-    ],
-    "answer": 0
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "DB 인덱스 시스템이 주로 사용하는 알고리즘은?",
-    "choices": [
-      "BST",
-      "Hash Table",
-      "RB Tree",
-      "B+ Tree"
-    ],
-    "answer": 3
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "다음 중 성질이 다른 알고리즘은?",
-    "choices": [
-      "RSA",
-      "ECDSA",
-      "ECC",
-      "SA"
-    ],
-    "answer": 3
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "다음 중 성질이 다른 알고리즘은?",
-    "choices": [
-      "Solovay-Strassen Algorithm",
-      "Miller-Rabin Algorithm",
-      "Johnson's Algorithm",
-      "Baillie-PSW Algorithm"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "컴퓨터의 4대 기본구성요소가 아닌 것은?",
-    "choices": [
-      "CPU",
-      "RAM",
-      "GPU",
-      "I/O"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "주로 사용되는 GPU의 성능지표는?",
-    "choices": [
-      "kWh",
-      "FLOPS",
-      "Hz",
-      "CUDA"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "DNS 레코드에서 다른 DNS를 지정하는 레코드 타입은?",
-    "choices": [
-      "REDIRECT",
-      "RCSIV",
-      "CNAME",
-      "SOA"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "NIC 에 대응되며 Link Layer 에서 컴퓨터의 주소를 지칭하는 코드 체계는?",
-    "choices": [
-      "IP address",
-      "NIC Code",
-      "Share Code",
-      "MAC"
-    ],
-    "answer": 3
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "다음중 성질이 다른 하나는?",
-    "choices": [
-      "FTP",
-      "HTTP",
-      "PnP",
-      "AMQP"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "다음중 GC가 있는 언어는?",
-    "choices": [
-      "C",
-      "C++",
-      "Go",
-      "Rust"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "리눅스 df 명령어의 옵션 중 존재하지 않는 것은?",
-    "choices": [
-      "-h",
-      "-p",
-      "-k",
-      "-i"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "short",
-    "prompt": "다음 JavaScript 코드의 출력은?",
-    "code": {
-      "lang": "javascript",
-      "text": "console.log(4<3<6);"
-    },
-    "answer": "true"
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "GNU gcc 명령어의 옵션 중 존재하지 않는 것은?",
-    "choices": [
-      "-o",
-      "-k",
-      "-s",
-      "-O2"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "short",
-    "prompt": "다음 Python 코드의 출력은?",
-    "code": {
-      "lang": "python",
-      "text": "print(4 < 2 < 6)"
-    },
-    "answer": "False"
-  },
-  {
-    "difficulty": "Expert",
-    "type": "short",
-    "prompt": "다음 C 코드의 출력은?",
-    "code": {
-      "lang": "c",
-      "text": "#include <stdio.h>\n\nint main(void){\n    int a = 0xf1;\n    printf(\"%d\", a^0xd2);\n    return 0;\n}\n"
-    },
-    "answer": "35"
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "다음중 프로그래밍 언어가 아닌 것은?",
-    "choices": [
-      "Gentoo",
-      "Rust",
-      "Dart",
-      "Kotlin"
-    ],
-    "answer": 0
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "Linux-OS 의 배포판이 아닌 것은?",
-    "choices": [
-      "Fedora",
-      "Arch",
-      "Yum",
-      "Debian"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "다음중 C++20 에서 연산자 우선순위가 가장 낮은 연산자는?",
-    "choices": [
-      "arr[3] 의 [] 연산자",
-      "i&1 의 & 비트연산자",
-      "i++ 의 ++ 연산자",
-      "4+5 의 + 산술연산자"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "sql 에서 테이블을 변경할 때 사용하는 명령어는?",
-    "choices": [
-      "UPDATE",
-      "ALTER",
-      "CHTABLE",
-      "CREATE"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "A Statistical Test Suite for Random and Pseudorandom Number Generators for Cryptographic Applications의 문서번호는?",
-    "choices": [
-      "DO-178C+DO-254",
-      "NIST SP 800-53",
-      "ISO 26262",
-      "NIST SP 800-22"
-    ],
-    "answer": 3
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "STL sort 가 사용하는 Introsort 의 정렬 알고리즘 조합은?",
-    "choices": [
-      "Heap Sort + Insertion Sort",
-      "Bucket Sort + Heap Sort + Intersion Sort",
-      "Quick Sort + Heap Sort + Insertion Sort",
-      "Quick Sort + Selection Sort"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "Intel x86 의 대입연산자는?",
-    "choices": [
-      "=",
-      "mov",
-      "<-",
-      "push"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "short",
-    "prompt": "Intel x86 에서 AX 의 비트 길이는?",
-    "code": {
-      "lang": "asm",
-      "text": "DIV AX,2"
-    },
-    "answer": "16"
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "Linux 의 동적 라이브러리의 확장자중 가장 범용적으로 사용되는 것은?",
-    "choices": [
-      ".so",
-      ".lib",
-      ".dll",
-      ".asm"
-    ],
-    "answer": 0
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "Intel x86 의 함수에서 4B 이하의 값이 ret 되었을 시 반환값의 위치는?",
-    "choices": [
-      "esi",
-      "eax",
-      "edx",
-      "ret"
-    ],
-    "answer": 1
-  },
-  {
-    "difficulty": "Expert",
-    "type": "mcq",
-    "prompt": "ASIC의 약자는?",
-    "choices": [
-      "Asynchronous SIM Integrated Code",
-      "Asynchronous System Internal Code",
-      "Application Semicustom Integrated Circuit",
-      "Application Specific Integrated Circuit"
-    ],
-    "answer": 3
-  },
-  {
     "difficulty": "Hard",
     "type": "mcq",
     "prompt": "Git에서 현재 브랜치의 변경 사항을 임시로 저장해 작업 트리를 깨끗하게 만드는 명령은?",
@@ -1231,7 +378,7 @@
   {
     "difficulty": "Hard",
     "type": "mcq",
-    "prompt": "에라토스테네스의 체로 1..n까지 소수를 구할 때 시간 복잡도는 보통 어떻게 표현되는가?",
+    "prompt": "소수 정리가 참일때, 에라토스테네스의 체로 1..n까지 소수를 구할 때 시간 복잡도는 보통 어떻게 표현되는가?",
     "choices": [
       "O(n)",
       "O(n log log n)",
@@ -1247,7 +394,7 @@
     "choices": [
       "Kruskal",
       "Prim",
-      "Borůvka",
+      "Boruvka",
       "Bellman-Ford"
     ],
     "answer": 3
@@ -1278,15 +425,13 @@
   },
   {
     "difficulty": "Hard",
-    "type": "mcq",
-    "prompt": "다음 중 Bloom Filter의 특징으로 옳은 것은?",
-    "choices": [
-      "거짓 음성(false negative)이 발생할 수 있다",
-      "거짓 양성(false positive)이 발생할 수 있다",
-      "삭제가 항상 O(1)로 가능하다",
-      "항상 정확한 포함 여부를 반환한다"
-    ],
-    "answer": 1
+    "type": "short",
+    "prompt": "다음 JavaScript 코드의 출력은?",
+    "code": {
+      "lang": "javascript",
+      "text": "console.log(4<3<6);"
+    },
+    "answer": "true"
   },
   {
     "difficulty": "Hard",
@@ -1411,6 +556,18 @@
   {
     "difficulty": "Hard",
     "type": "mcq",
+    "prompt": "HTTP의 약자는?",
+    "choices": [
+      "HyperText Transfer Protocol",
+      "HyperText-Tychonoff Protocol",
+      "HyperText-TextEdit Protocol",
+      "HyperText Transfile Protocol"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Hard",
+    "type": "mcq",
     "prompt": "다음 중 버전 관리에서 '원격 저장소'를 의미하는 것은?",
     "choices": [
       "origin",
@@ -1477,18 +634,6 @@
   {
     "difficulty": "Hard",
     "type": "mcq",
-    "prompt": "AES-GCM이 제공하는 보안 속성 조합으로 가장 적절한 것은?",
-    "choices": [
-      "기밀성만",
-      "무결성만",
-      "기밀성 + 무결성(인증)",
-      "부인방지"
-    ],
-    "answer": 2
-  },
-  {
-    "difficulty": "Hard",
-    "type": "mcq",
     "prompt": "CORS에서 프리플라이트(preflight) 요청에 사용하는 메서드는?",
     "choices": [
       "GET",
@@ -1543,18 +688,6 @@
       "항상 동시성 없음"
     ],
     "answer": 1
-  },
-  {
-    "difficulty": "Hard",
-    "type": "mcq",
-    "prompt": "LCA를 Euler Tour + RMQ로 구할 때, RMQ를 Sparse Table로 구현하면 쿼리 시간 복잡도는?",
-    "choices": [
-      "O(1)",
-      "O(log n)",
-      "O(n)",
-      "O(n log n)"
-    ],
-    "answer": 0
   },
   {
     "difficulty": "Hard",
@@ -1691,7 +824,7 @@
   {
     "difficulty": "Hard",
     "type": "mcq",
-    "prompt": "sql 에서 테이블 주소를 변경할 때 사용하는 명령어는?",
+    "prompt": "sql 에서 테이블 구조를 변경할 때 사용하는 명령어는?",
     "choices": [
       "UPDATE",
       "ALTER",
@@ -1715,6 +848,18 @@
   {
     "difficulty": "Hard",
     "type": "mcq",
+    "prompt": "CSS에서 요소를 숨기되 레이아웃 공간도 제거하는 속성/값 조합은?",
+    "choices": [
+      "visibility: hidden",
+      "opacity: 0",
+      "display: none",
+      "position: absolute"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Hard",
+    "type": "mcq",
     "prompt": "Linux 쉘이 아닌 것은?",
     "choices": [
       "tmux",
@@ -1723,6 +868,18 @@
       "ksh"
     ],
     "answer": 0
+  },
+  {
+    "difficulty": "Hard",
+    "type": "mcq",
+    "prompt": "Python에서 예외를 발생시키는 키워드는?",
+    "choices": [
+      "throw",
+      "raise",
+      "except",
+      "panic"
+    ],
+    "answer": 1
   },
   {
     "difficulty": "Hard",
@@ -1745,6 +902,835 @@
       "text": "pid = __?__();"
     },
     "answer": "fork"
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "Suffix Array를 O(n log n)에 구축하는 대표적인 접근으로 흔히 쓰이는 것은?",
+    "choices": [
+      "Doubling",
+      "Kruskal",
+      "Kosaraju",
+      "Mo's algorithm"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "트리에서 LCA를 구하는 이진 점프(Binary Lifting) 전처리 시간 복잡도는?",
+    "choices": [
+      "O(n)",
+      "O(n log n)",
+      "O(log n)",
+      "O(n^2)"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "DNS 레코드에서 ipv6 을 지정하는 레코드 타입은?",
+    "choices": [
+      "A",
+      "AAAA",
+      "CNAME",
+      "IPV6"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "NIC 에 대응되며 Link Layer 에서 컴퓨터의 주소를 지칭하는 코드 체계는?",
+    "choices": [
+      "IP address",
+      "NIC Code",
+      "Share Code",
+      "MAC"
+    ],
+    "answer": 3
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "분산 시스템에서 Linearizability(선형화 가능성)의 의미로 가장 적절한 것은?",
+    "choices": [
+      "각 노드가 결국 동일 상태로 수렴한다",
+      "연산들이 즉시 실행된 것처럼 보이며 순서를 보존한다",
+      "네트워크 분할이 있어도 가용성을 보장한다",
+      "연산과 동일한 결과를 내는 순차적 실행이 존재한다"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "Self-attention(full attention)에서 시퀀스 길이를 L이라고 할 때, attention score 계산의 시간/메모리에서 L에 대한 스케일링은?",
+    "choices": [
+      "O(L)",
+      "O(L log L)",
+      "O(L^2)",
+      "O(2^L)"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "Knowledge Distillation에서 'teacher' 모델이 제공하는 정보로 가장 흔히 사용하는 것은?",
+    "choices": [
+      "하드 라벨(one-hot)",
+      "소프트 타깃(확률 분포)",
+      "이미지 맵(확률 이미지)",
+      "정보 엔트로피"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Expert",
+    "type": "short",
+    "prompt": "다음 JavaScript 코드의 출력은?",
+    "code": {
+      "lang": "javascript",
+      "text": "console.log(+[[[[!![]+!![]+!![]]*[!![]+!![]]]+[[]*!![]]]]);"
+    },
+    "answer": "60"
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "분산 시스템에서 'Split-brain'의 가장 알맞은 원인은?",
+    "choices": [
+      "시간 동기화 실패",
+      "네트워크에 리더가 둘 이상 존재",
+      "둘 이상의 피연산자가 서로 다른 서버에 존재",
+      "두 서버가 동시에 같은 연산을 스케줄링"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Expert",
+    "type": "short",
+    "prompt": "다음 Python 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "a = [1,2,3]\nprint(a is a[:])"
+    },
+    "answer": "False"
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "다음 중 CPU에서 가장 빠르게 데이터를 받아올 수 있는 저장공간은?",
+    "choices": [
+      "L1 cache",
+      "L2 cache",
+      "L3 cache",
+      "DRAM"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Expert",
+    "type": "short",
+    "prompt": "다음 C 코드의 출력은?",
+    "code": {
+      "lang": "c",
+      "text": "#include <stdio.h>\n#define SQUARE(x) x*x\n\nint main(void){\n    int a = 3;\n    printf(\"%d\", SQUARE(a+1));\n    return 0;\n}\n"
+    },
+    "answer": "7"
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "NVME는 무엇의 약자인가?",
+    "choices": [
+      "Non-Volatile Memory Express",
+      "Non-Volatile Memory Engine",
+      "Network Volatile Memory Extension",
+      "Non-Variable Memory Express"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "EEPROM의 발전형은?",
+    "choices": [
+      "Flash Memory",
+      "SSD",
+      "HBM",
+      "VEEPROM"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "DB 인덱스 시스템이 주로 사용하는 알고리즘은?",
+    "choices": [
+      "BST",
+      "Hash Table",
+      "RB Tree",
+      "B+ Tree"
+    ],
+    "answer": 3
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "다음 중 성질이 다른 알고리즘은?",
+    "choices": [
+      "RSA",
+      "ECDSA",
+      "ECC",
+      "SA"
+    ],
+    "answer": 3
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "다음 중 성질이 다른 알고리즘은?",
+    "choices": [
+      "Solovay-Strassen Algorithm",
+      "Miller-Rabin Algorithm",
+      "Johnson's Algorithm",
+      "Baillie-PSW Algorithm"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "컴퓨터의 4대 기본구성요소가 아닌 것은?",
+    "choices": [
+      "CPU",
+      "RAM",
+      "GPU",
+      "I/O"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "주로 사용되는 GPU의 성능지표는?",
+    "choices": [
+      "kWh",
+      "FLOPS",
+      "Hz",
+      "CUDA"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "DNS 레코드에서 다른 DNS를 지정하는 레코드 타입은?",
+    "choices": [
+      "REDIRECT",
+      "RCSIV",
+      "CNAME",
+      "SOA"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "NIC 에 대응되며 Link Layer 에서 컴퓨터의 주소를 지칭하는 코드 체계는?",
+    "choices": [
+      "IP address",
+      "NIC Code",
+      "Share Code",
+      "MAC"
+    ],
+    "answer": 3
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "다음중 성질이 다른 하나는?",
+    "choices": [
+      "FTP",
+      "HTTP",
+      "PnP",
+      "AMQP"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "다음중 GC가 있는 언어는?",
+    "choices": [
+      "C",
+      "C++",
+      "Go",
+      "Rust"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "리눅스 df 명령어의 옵션 중 존재하지 않는 것은?",
+    "choices": [
+      "-h",
+      "-p",
+      "-k",
+      "-i"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "다음 중 Bloom Filter의 특징으로 옳은 것은?",
+    "choices": [
+      "1종오류가 발생할 수 있다",
+      "2종오류가 발생할 수 있다",
+      "삭제의 시간복잡도가 O(1)이다",
+      "포함 여부를 정확히 반환한다"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "GNU gcc 명령어의 옵션 중 존재하지 않는 것은?",
+    "choices": [
+      "-o",
+      "-k",
+      "-s",
+      "-O2"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Hard",
+    "type": "mcq",
+    "prompt": "LCA를 Euler Tour + RMQ로 구할 때, RMQ를 Sparse Table로 구현하면 쿼리 시간 복잡도는?",
+    "choices": [
+      "O(1)",
+      "O(log n)",
+      "O(n)",
+      "O(n log n)"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Expert",
+    "type": "short",
+    "prompt": "다음 Python 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "print(4 < 2 < 6)"
+    },
+    "answer": "False"
+  },
+  {
+    "difficulty": "Expert",
+    "type": "short",
+    "prompt": "다음 C 코드의 출력은?",
+    "code": {
+      "lang": "c",
+      "text": "#include <stdio.h>\n\nint main(void){\n    int a = 0xf1;\n    printf(\"%d\", a^0xd2);\n    return 0;\n}\n"
+    },
+    "answer": "35"
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "다음중 프로그래밍 언어가 아닌 것은?",
+    "choices": [
+      "Gentoo",
+      "Rust",
+      "Dart",
+      "Kotlin"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "Linux-OS 의 배포판이 아닌 것은?",
+    "choices": [
+      "Fedora",
+      "Arch",
+      "Yum",
+      "Debian"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "다음중 C++20 에서 연산자 우선순위가 가장 낮은 연산자는?",
+    "choices": [
+      "arr[3] 의 [] 연산자",
+      "i&1 의 & 비트연산자",
+      "i++ 의 ++ 연산자",
+      "4+5 의 + 산술연산자"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "BCNF 정규화의 필요조건이 아닌 것은?",
+    "choices": [
+      "테이블 내의 속성값이 Atomic",
+      "모든 테이블의 모든 속성이 다치 종속적이지 아니하다",
+      "모든 테이블의 모든 속성이 기본키에 완전 함수 종속",
+      "모든 결정자가 후보키에 속한다"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "A Statistical Test Suite for Random and Pseudorandom Number Generators for Cryptographic Applications의 문서번호는?",
+    "choices": [
+      "DO-178C+DO-254",
+      "NIST SP 800-53",
+      "ISO 26262",
+      "NIST SP 800-22"
+    ],
+    "answer": 3
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "STL sort 가 사용하는 Introsort 의 정렬 알고리즘 조합은?",
+    "choices": [
+      "Heap Sort + Insertion Sort",
+      "Bucket Sort + Heap Sort + Insersion Sort",
+      "Quick Sort + Heap Sort + Insertion Sort",
+      "Quick Sort + Selection Sort"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "Intel x86 의 대입연산자는?",
+    "choices": [
+      "=",
+      "mov",
+      "<-",
+      "push"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Expert",
+    "type": "short",
+    "prompt": "Intel x86 에서 AX 의 비트 길이는?",
+    "code": {
+      "lang": "asm",
+      "text": "DIV AX,2"
+    },
+    "answer": "16"
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "Linux 의 동적 라이브러리의 확장자중 가장 범용적으로 사용되는 것은?",
+    "choices": [
+      ".so",
+      ".lib",
+      ".dll",
+      ".asm"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "Intel x86 의 함수에서 4B 이하의 값이 ret 되었을 시 반환값의 위치는?",
+    "choices": [
+      "esi",
+      "eax",
+      "edx",
+      "ret"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Expert",
+    "type": "mcq",
+    "prompt": "ASIC의 약자는?",
+    "choices": [
+      "Asynchronous SIM Integrated Code",
+      "Asynchronous System Internal Code",
+      "Asynchronous Semicustom Integrated Circuit",
+      "Application Specific Integrated Circuit"
+    ],
+    "answer": 3
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "HTTP 상태 코드 404의 의미는?",
+    "choices": [
+      "서버 내부 오류",
+      "권한 없음",
+      "페이지를 찾을 수 없음",
+      "성공"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "JavaScript에서 엄격 동등 비교 연산자는?",
+    "choices": [
+      "==",
+      "===",
+      "=",
+      "!=="
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "HTML에서 하이퍼링크를 만드는 태그는?",
+    "choices": [
+      "<link>",
+      "<a>",
+      "<href>",
+      "<p>"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "OSI 7계층에서 IP가 속하는 계층은?",
+    "choices": [
+      "물리 계층",
+      "데이터 링크 계층",
+      "네트워크 계층",
+      "전송 계층"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "머신러닝에서 학습 데이터에 과도하게 맞춰져 일반화 성능이 떨어지는 현상은?",
+    "choices": [
+      "Underfitting",
+      "Overfitting",
+      "Dropout",
+      "Batching"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "정렬된 배열에서 원소를 찾을 때 일반적으로 사용하는 탐색 방법은?",
+    "choices": [
+      "선형 탐색",
+      "이진 탐색",
+      "DFS",
+      "BFS"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 Python 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "a = [1, 2, 3]\na.append(4)\nprint(len(a), a[0], a[-1])"
+    },
+    "answer": "4 1 4"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 JavaScript 코드의 출력은?",
+    "code": {
+      "lang": "javascript",
+      "text": "let x = 3;\nconsole.log(x * 2 + 1);"
+    },
+    "answer": "7"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 Python 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "s = \"abc\"\nprint(s.upper())"
+    },
+    "answer": "ABC"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 C 코드의 출력은?",
+    "code": {
+      "lang": "c",
+      "text": "#include <stdio.h>\nint main(){\n  int a = 5;\n  printf(\"%d\", a/2);\n  return 0;\n}"
+    },
+    "answer": "2"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 Python 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "print(10 // 3, 10 % 3)"
+    },
+    "answer": "3 1"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 JavaScript 코드의 출력은?",
+    "code": {
+      "lang": "javascript",
+      "text": "console.log(\"5\" + 2);\nconsole.log(\"5\" - 1);"
+    },
+    "answer": "52\n4"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 Python 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "x = 0\nfor i in range(5):\n  x += i\nprint(x)"
+    },
+    "answer": "10"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 C++ 코드의 출력은?",
+    "code": {
+      "lang": "cpp",
+      "text": "#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n  vector<int> v = {1,2,3};\n  cout << v.size();\n  return 0;\n}"
+    },
+    "answer": "3"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "Python에서 키-값 쌍을 저장하는 자료구조는?",
+    "choices": [
+      "list",
+      "tuple",
+      "dict",
+      "set"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "다음 중 2진수 1010을 10진수로 바꾸면?",
+    "choices": [
+      "8",
+      "9",
+      "10",
+      "12"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 Python 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "d = {\"a\": 1, \"b\": 2}\nprint(d.get(\"c\", 10))"
+    },
+    "answer": "10"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 C 코드의 출력은?",
+    "code": {
+      "lang": "c",
+      "text": "#include <stdio.h>\nint main(){\n  printf(\"%d\", (int)('c' - 'a'));\n  return 0;\n}"
+    },
+    "answer": "2"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 JavaScript 코드의 출력은?",
+    "code": {
+      "lang": "javascript",
+      "text": "console.log([\"a\",\"b\"].length);"
+    },
+    "answer": "2"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "다음 중 Linux에서 현재 디렉토리의 파일 목록을 보는 명령은?",
+    "choices": [
+      "cd",
+      "ls",
+      "pwd",
+      "rm"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "URL에서 쿼리 스트링이 시작되는 기호는?",
+    "choices": [
+      "#",
+      "?",
+      "&",
+      "/"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 Python 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "print(\"-\".join([\"a\",\"b\",\"c\"]))"
+    },
+    "answer": "a-b-c"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 JavaScript 코드의 출력은?",
+    "code": {
+      "lang": "javascript",
+      "text": "console.log(Math.max(3, 7, 2));"
+    },
+    "answer": "7"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 JavaScript 코드의 출력은?",
+    "code": {
+      "lang": "javascript",
+      "text": "console.log(0.1 + 0.2 === 0.3);"
+    },
+    "answer": "false"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 Python 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "print(sum([1,2,3,4]))"
+    },
+    "answer": "10"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "다음 중 '클라이언트-서버' 모델의 예로 가장 적절한 것은?",
+    "choices": [
+      "브라우저-웹서버",
+      "키보드-모니터",
+      "CPU-캐시",
+      "RAM-SSD"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 Python 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "print(\"Hello\"[1:4])"
+    },
+    "answer": "ell"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "short",
+    "prompt": "다음 Python 코드의 출력은?",
+    "code": {
+      "lang": "python",
+      "text": "x = 1\nfor _ in range(5):\n  x = (x * 2) % 7\nprint(x)"
+    },
+    "answer": "4"
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "다음 중 시간복잡도가 가장 느린(성장률이 큰) 것은?",
+    "choices": [
+      "O(n)",
+      "O(n log n)",
+      "O(n^2)",
+      "O(log n)"
+    ],
+    "answer": 2
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "다음 중 JSON의 타입이 아닌 것은?",
+    "choices": [
+      "number",
+      "string",
+      "boolean",
+      "function"
+    ],
+    "answer": 3
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "다음 중 'HTTP'에 비해 'HTTPS'가 제공하는 핵심 효과는?",
+    "choices": [
+      "압축",
+      "암호화 및 무결성 보호",
+      "DB 트랜잭션",
+      "캐시 무효화"
+    ],
+    "answer": 1
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "SCSC 동아리방은 몇 동에 위치할까?",
+    "choices": [
+      "63동 학생회관",
+      "28동 대형강의동",
+      "301동 제2공학관",
+      "223동 우석경제관"
+    ],
+    "answer": 0
+  },
+  {
+    "difficulty": "Easy",
+    "type": "mcq",
+    "prompt": "SCSC 출신 선배가 설립한 기업이 아닌 것은?",
+    "choices": [
+      "한글과 컴퓨터",
+      "한메소프트",
+      "NC소프트",
+      "삼성전자"
+    ],
+    "answer": 3
   }
 ]
-
