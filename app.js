@@ -11,17 +11,48 @@ function loadSettings() {
   if (raw) {
     try {
       const s = JSON.parse(raw);
-      return {
-        timeLimitMin: clampInt(s.timeLimitMin, 1, 999, 5),
-        topN: clampInt(s.topN, 1, 9999, 10),
-      };
+
+      // ✅ backward-compat: 기존 단일 값(timeLimitMin/topN)이 있으면 난이도 전체에 동일 적용
+      const legacyTime = ("timeLimitMin" in s) ? clampInt(s.timeLimitMin, 1, 999, 5) : null;
+      const legacyTopN = ("topN" in s) ? clampInt(s.topN, 1, 9999, 10) : null;
+
+      const timeLimitMinByDifficulty = {};
+      const topNByDifficulty = {};
+
+      for (const d of DIFFICULTIES) {
+        timeLimitMinByDifficulty[d] = clampInt(
+          legacyTime ?? (s.timeLimitMinByDifficulty ? s.timeLimitMinByDifficulty[d] : undefined),
+          1,
+          999,
+          5
+        );
+        topNByDifficulty[d] = clampInt(
+          legacyTopN ?? (s.topNByDifficulty ? s.topNByDifficulty[d] : undefined),
+          1,
+          9999,
+          10
+        );
+      }
+
+      return { timeLimitMinByDifficulty, topNByDifficulty };
     } catch {}
   }
-  return { timeLimitMin: 5, topN: 10 };
+
+  const timeLimitMinByDifficulty = { Easy: 5, Hard: 5, Expert: 5 };
+  const topNByDifficulty = { Easy: 10, Hard: 10, Expert: 3 };
+  return { timeLimitMinByDifficulty, topNByDifficulty };
 }
 
 function saveSettings(s) {
   localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
+}
+
+function getTimeLimitMin(difficulty) {
+  return clampInt(settings?.timeLimitMinByDifficulty?.[difficulty], 1, 999, 5);
+}
+
+function getTopN(difficulty) {
+  return clampInt(settings?.topNByDifficulty?.[difficulty], 1, 9999, 10);
 }
 
 function clampInt(v, min, max, fallback) {
@@ -71,8 +102,13 @@ const settingsModal = $("settingsModal");
 const closeSettingsBtn = $("closeSettingsBtn");
 const saveSettingsBtn = $("saveSettingsBtn");
 
-const timeLimitMinInput = $("timeLimitMinInput");
-const topNInput = $("topNInput");
+const timeLimitMinEasyInput = $("timeLimitMinEasyInput");
+const timeLimitMinHardInput = $("timeLimitMinHardInput");
+const timeLimitMinExpertInput = $("timeLimitMinExpertInput");
+
+const topNEasyInput = $("topNEasyInput");
+const topNHardInput = $("topNHardInput");
+const topNExpertInput = $("topNExpertInput");
 
 const timerPill = $("timerPill");
 const timerText = $("timerText");
@@ -131,8 +167,8 @@ let currentIndex = 0;
 
 let userAnswers = [];
 let timer = {
-  totalSec: settings.timeLimitMin * 60,
-  remainSec: settings.timeLimitMin * 60,
+  totalSec: getTimeLimitMin("Easy") * 60,
+  remainSec: getTimeLimitMin("Easy") * 60,
   handle: null,
 };
 
@@ -180,8 +216,14 @@ function showScreen(which) {
    Settings Modal
 ========================= */
 function openSettings() {
-  timeLimitMinInput.value = String(settings.timeLimitMin);
-  topNInput.value = String(settings.topN);
+  if (timeLimitMinEasyInput) timeLimitMinEasyInput.value = String(getTimeLimitMin("Easy"));
+  if (timeLimitMinHardInput) timeLimitMinHardInput.value = String(getTimeLimitMin("Hard"));
+  if (timeLimitMinExpertInput) timeLimitMinExpertInput.value = String(getTimeLimitMin("Expert"));
+
+  if (topNEasyInput) topNEasyInput.value = String(getTopN("Easy"));
+  if (topNHardInput) topNHardInput.value = String(getTopN("Hard"));
+  if (topNExpertInput) topNExpertInput.value = String(getTopN("Expert"));
+
   settingsModal.classList.remove("hidden");
 }
 
@@ -197,9 +239,18 @@ settingsModal.addEventListener("click", (e) => {
 
 saveSettingsBtn.addEventListener("click", () => {
   const newSettings = {
-    timeLimitMin: clampInt(timeLimitMinInput.value, 1, 999, 5),
-    topN: clampInt(topNInput.value, 1, 9999, 10),
+    timeLimitMinByDifficulty: {
+      Easy: clampInt(timeLimitMinEasyInput?.value, 1, 999, 5),
+      Hard: clampInt(timeLimitMinHardInput?.value, 1, 999, 5),
+      Expert: clampInt(timeLimitMinExpertInput?.value, 1, 999, 5),
+    },
+    topNByDifficulty: {
+      Easy: clampInt(topNEasyInput?.value, 1, 9999, 10),
+      Hard: clampInt(topNHardInput?.value, 1, 9999, 10),
+      Expert: clampInt(topNExpertInput?.value, 1, 9999, 10),
+    },
   };
+
   settings = newSettings;
   saveSettings(settings);
   closeSettings();
@@ -210,7 +261,7 @@ saveSettingsBtn.addEventListener("click", () => {
    Timer
 ========================= */
 function resetTimer() {
-  timer.totalSec = settings.timeLimitMin * 60;
+  timer.totalSec = getTimeLimitMin(quizDifficulty) * 60;
   timer.remainSec = timer.totalSec;
   timerText.textContent = mmss(timer.remainSec);
   timerPill.classList.remove("hidden");
@@ -492,13 +543,16 @@ function wouldBeInTopN(list, candidate, topN) {
 
 function renderScoreboard() {
   const list = loadWinners();
-  const n = settings.topN;
 
-  if (topNLabelExpert) topNLabelExpert.textContent = String(n);
-  if (topNLabelHard) topNLabelHard.textContent = String(n);
-  if (topNLabelEasy) topNLabelEasy.textContent = String(n);
+  const nExpert = getTopN("Expert");
+  const nHard = getTopN("Hard");
+  const nEasy = getTopN("Easy");
 
-  const renderBody = (tbody, difficulty) => {
+  if (topNLabelExpert) topNLabelExpert.textContent = String(nExpert);
+  if (topNLabelHard) topNLabelHard.textContent = String(nHard);
+  if (topNLabelEasy) topNLabelEasy.textContent = String(nEasy);
+
+  const renderBody = (tbody, difficulty, n) => {
     if (!tbody) return;
     const top = getTopNForDifficulty(list, difficulty, n);
     if (top.length === 0) {
@@ -518,9 +572,9 @@ function renderScoreboard() {
       .join("");
   };
 
-  renderBody(sbBodyExpert, "Expert");
-  renderBody(sbBodyHard, "Hard");
-  renderBody(sbBodyEasy, "Easy");
+  renderBody(sbBodyExpert, "Expert", nExpert);
+  renderBody(sbBodyHard, "Hard", nHard);
+  renderBody(sbBodyEasy, "Easy", nEasy);
 }
 
 /* =========================
@@ -540,7 +594,7 @@ function finishQuiz(byTimeout = false) {
 
   resultDifficulty.textContent = quizDifficulty;
   resultScore.textContent = `${correct} / ${total}`;
-  resultTime.textContent = `${settings.timeLimitMin}분`;
+  resultTime.textContent = `${getTimeLimitMin(quizDifficulty)}분`;
   if (resultElapsed) resultElapsed.textContent = mmss(lastElapsedSec);
 
   resultSummary.textContent = byTimeout
@@ -557,7 +611,7 @@ function finishQuiz(byTimeout = false) {
   };
 
   const list = loadWinners();
-  const qualifies = !byTimeout && wouldBeInTopN(list, baseCandidate, settings.topN);
+  const qualifies = !byTimeout && wouldBeInTopN(list, baseCandidate, getTopN(quizDifficulty));
 
   winnerFormBox.classList.toggle("hidden", !qualifies);
 
@@ -739,7 +793,7 @@ winnerForm.addEventListener("submit", (e) => {
     total: entry.total,
     elapsedSec: entry.elapsedSec,
   };
-  const stillQualifies = wouldBeInTopN(list, candidateForCheck, settings.topN);
+  const stillQualifies = wouldBeInTopN(list, candidateForCheck, getTopN(candidateForCheck.difficulty));
 
   if (!stillQualifies) {
     alert("아쉽지만 현재 기준 Top N 밖으로 밀렸습니다. (저장되지 않음)");
@@ -789,8 +843,13 @@ if (clearWinnersBtn) {
    Init
 ========================= */
 (async function init() {
-  timeLimitMinInput.value = String(settings.timeLimitMin);
-  topNInput.value = String(settings.topN);
+  if (timeLimitMinEasyInput) timeLimitMinEasyInput.value = String(getTimeLimitMin("Easy"));
+  if (timeLimitMinHardInput) timeLimitMinHardInput.value = String(getTimeLimitMin("Hard"));
+  if (timeLimitMinExpertInput) timeLimitMinExpertInput.value = String(getTimeLimitMin("Expert"));
+
+  if (topNEasyInput) topNEasyInput.value = String(getTopN("Easy"));
+  if (topNHardInput) topNHardInput.value = String(getTopN("Hard"));
+  if (topNExpertInput) topNExpertInput.value = String(getTopN("Expert"));
 
   renderScoreboard();
 

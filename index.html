@@ -182,7 +182,7 @@
                 </div>
               </form>
 
-              
+
 
             <div class="actions">
               <button id="restartBtn" class="btn btn-primary" type="button">
@@ -195,7 +195,7 @@
         <!-- ✅ 우측 스코어보드 -->
         <aside id="scoreboard" class="card scoreboard">
           <h2 class="title">Scoreboard</h2>
-          <p class="subtitle small">기준: 맞춘 문제 수 ↓ / 동점이면 시간 ↑빠른 순</p>
+          <p class="subtitle small">기준: 맞춘 문제 수 / 동점이면 시간 ↑빠른 순</p>
 
           <div class="sb-section">
             <div class="sb-head">
@@ -257,28 +257,46 @@
 
         <div class="modal-body">
           <div class="form-row">
-            <label class="label">제한시간(분)</label>
-            <input
-              id="timeLimitMinInput"
-              class="input"
-              type="number"
-              min="1"
-              step="1"
-              value="5"
-            />
-          </div>
+  <label class="label">제한시간(분)</label>
+
+  <div>
+    <div class="inline">
+      <span class="small">Easy</span>
+      <input id="timeLimitMinEasyInput" class="input" type="number" min="1" step="1" value="5" />
+    </div>
+
+    <div class="inline">
+      <span class="small">Hard</span>
+      <input id="timeLimitMinHardInput" class="input" type="number" min="1" step="1" value="5" />
+    </div>
+
+    <div class="inline">
+      <span class="small">Expert</span>
+      <input id="timeLimitMinExpertInput" class="input" type="number" min="1" step="1" value="5" />
+    </div>
+  </div>
+</div>
 
           <div class="form-row">
-            <label class="label">상위 N명 기준</label>
-            <input
-              id="topNInput"
-              class="input"
-              type="number"
-              min="1"
-              step="1"
-              value="10"
-            />
-          </div>
+  <label class="label">상위 N명 기준</label>
+
+  <div>
+    <div class="inline">
+      <span class="small">Easy</span>
+      <input id="topNEasyInput" class="input" type="number" min="1" step="1" value="10" />
+    </div>
+
+    <div class="inline">
+      <span class="small">Hard</span>
+      <input id="topNHardInput" class="input" type="number" min="1" step="1" value="10" />
+    </div>
+
+    <div class="inline">
+      <span class="small">Expert</span>
+      <input id="topNExpertInput" class="input" type="number" min="1" step="1" value="3" />
+    </div>
+  </div>
+</div>
 
           <div class="small muted">
             기본값: 제한시간 5분 / 난이도별 Top 10만 기록 폼 표시
