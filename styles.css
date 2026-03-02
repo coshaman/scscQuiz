@@ -1118,3 +1118,157 @@ textarea.input::-webkit-scrollbar-thumb:hover {
   font-weight: 900;
   font-size: 13px;
 }
+
+/* ===== Result Detail: Answer Reveal (only on wrong) ===== */
+.rd-item {
+  display: flex;
+  flex-direction: column;   /* ← 세로 스택으로 변경 */
+  gap: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 14px;
+}
+
+.rd-item.ok {
+  background: rgba(30, 140, 90, 0.08);
+}
+
+.rd-item.bad {
+  background: rgba(200, 60, 60, 0.10);
+}
+
+.rd-q {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rd-idx {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+  flex: 0 0 auto;
+}
+
+.rd-prompt {
+  font-weight: 600;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.rd-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rd-flag {
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+  letter-spacing: -0.2px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  word-break: keep-all;
+  margin-right: 15px;
+}
+
+.rd-flag.ok {
+  background: rgba(30, 140, 90, 0.22);
+}
+
+.rd-flag.bad {
+  background: rgba(200, 60, 60, 0.22);
+}
+
+.rd-answers {
+  display: flex;
+  width: 100%;
+  gap: 14px;
+}
+
+.rd-answer {
+  flex: 1;
+  padding: 14px;
+  border-radius: 14px;
+}
+.rd-answers {
+  border-top: 1px dashed rgba(255,255,255,0.12);
+  padding-top: 12px;
+}
+
+.rd-answer-k {
+  font-size: 12px;
+  opacity: 0.75;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.rd-answer-v {
+  font-size: 14px;
+  line-height: 1.35;
+  white-space: pre-wrap; /* short 답안 줄바꿈 보존 */
+  word-break: break-word;
+}
+
+@media (max-width: 720px) {
+  .rd-item {
+    flex-direction: column;
+  }
+  .rd-right {
+    align-items: stretch;
+    max-width: 100%;
+  }
+  .rd-flag {
+    align-self: flex-start;
+  }
+}
+/* 내 답 / 정답 → 한 줄 50%씩 */
+.rd-answers {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.rd-answer {
+  flex: 1;                    /* 50%씩 */
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* 내 답은 약간 붉은 톤 */
+.rd-answer:first-child {
+  border-color: rgba(255, 107, 107, 0.35);
+  background: rgba(255, 107, 107, 0.08);
+}
+
+/* 정답은 초록 톤 */
+.rd-answer:last-child {
+  border-color: rgba(124, 255, 154, 0.45);
+  background: rgba(124, 255, 154, 0.10);
+}
+
+.rd-answer-k {
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+.rd-answer-v {
+  font-size: 14px;
+  font-weight: 800;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+@media (max-width: 720px) {
+  .rd-answers {
+    flex-direction: column;
+  }
+}

@@ -80,7 +80,14 @@ function mmss(totalSeconds) {
 
 function normalizeAnswerText(s) {
   const t = String(s ?? "");
-  const lines = t.replaceAll("\r\n", "\n").replaceAll("\r", "\n").trim().split("\n");
+
+  const lines = t
+    .replaceAll("\r\n", "\n")
+    .replaceAll("\r", "\n")
+    .trim()
+    .split("\n")
+    .map((line) => line.trim().toLowerCase()); // ✅ 소문자 통일
+
   return lines.join("\n");
 }
 
@@ -465,37 +472,74 @@ function renderResultDetails() {
   resultDetailList.innerHTML = "";
 
   const items = [];
+
   for (let i = 0; i < quizQuestions.length; i++) {
     const q = quizQuestions[i];
     const ans = userAnswers[i];
 
     let isCorrect = false;
-    let your = "";
-    let correctAns = "";
+
+    // 오답일 때만 보여줄 값(정답이면 빈 문자열 유지)
+    let yourText = "";
+    let correctText = "";
 
     if (q.type === "mcq") {
-      const opts = Array.isArray(q.options) ? q.options : [];
+      const choices = Array.isArray(q.choices) ? q.choices : [];
       const selected = typeof ans === "number" ? ans : -1;
-      your = selected >= 0 && selected < opts.length ? opts[selected] : "(미선택)";
-      const ci = Number(q.answer);
-      correctAns = ci >= 0 && ci < opts.length ? opts[ci] : String(q.answer);
+      const ci = Number(q.answer); // ✅ JSON 정답은 0-based
+
       isCorrect = selected === ci;
+
+      if (!isCorrect) {
+        yourText =
+          selected >= 0 && selected < choices.length
+            ? String(choices[selected])
+            : "(미선택)";
+        correctText =
+          ci >= 0 && ci < choices.length ? String(choices[ci]) : String(q.answer);
+      }
     } else {
-      your = normalizeAnswerText(ans ?? "");
-      correctAns = normalizeAnswerText(q.answer ?? "");
-      isCorrect = your === correctAns;
-      if (!your) your = "(미입력)";
+      const yourNorm = normalizeAnswerText(ans ?? "");
+      const correctNorm = normalizeAnswerText(q.answer ?? "");
+      isCorrect = yourNorm === correctNorm;
+
+      if (!isCorrect) {
+        yourText = yourNorm ? yourNorm : "(미입력)";
+        correctText = correctNorm;
+      }
     }
 
     items.push(`
-  <div class="rd-item ${isCorrect ? "ok" : "bad"}">
-    <div class="rd-q">
-      <div class="rd-idx">${i + 1}</div>
-      <div class="rd-prompt">${escapeHtml(q.prompt)}</div>
-    </div>
-    <div class="rd-flag-only">${isCorrect ? "정답" : "오답"}</div>
-  </div>
-`);
+      <div class="rd-item ${isCorrect ? "ok" : "bad"}">
+        <div class="rd-q">
+          <div class="rd-idx">${i + 1}</div>
+          <div class="rd-prompt">${escapeHtml(q.prompt)}</div>
+        </div>
+
+        <div class="rd-right">
+          <div class="rd-flag ${isCorrect ? "ok" : "bad"}">
+            ${isCorrect ? "정답" : "오답"}
+          </div>
+
+          ${
+            isCorrect
+              ? ""
+              : `
+                <div class="rd-answers">
+                  <div class="rd-answer">
+                    <div class="rd-answer-k">내 답</div>
+                    <div class="rd-answer-v">${escapeHtml(yourText)}</div>
+                  </div>
+                  <div class="rd-answer">
+                    <div class="rd-answer-k">정답</div>
+                    <div class="rd-answer-v">${escapeHtml(correctText)}</div>
+                  </div>
+                </div>
+              `
+          }
+        </div>
+      </div>
+    `);
   }
 
   resultDetailList.innerHTML = items.join("\n");
