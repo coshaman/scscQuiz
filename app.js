@@ -333,9 +333,24 @@ async function loadQuestions() {
 
 function pickQuestions(difficulty, count) {
   const pool = allQuestions.filter((q) => q.difficulty === difficulty);
+
+  // Easy만 short:mcq = 1:1 비율
+  if (difficulty === "Easy") {
+    const mcqPool = pool.filter((q) => q.type === "mcq");
+    const shortPool = pool.filter((q) => q.type === "short");
+
+    const mcqCount = Math.floor(count / 2);
+    const shortCount = count - mcqCount; // 홀수면 short가 1개 더
+
+    const pickedMcq = shuffle(mcqPool).slice(0, mcqCount);
+    const pickedShort = shuffle(shortPool).slice(0, shortCount);
+
+    return shuffle([...pickedMcq, ...pickedShort]);
+  }
+
+  // Hard / Expert는 기존처럼 랜덤
   return shuffle(pool).slice(0, count);
 }
-
 function escapeHtml(s) {
   return String(s ?? "")
     .replaceAll("&", "&amp;")

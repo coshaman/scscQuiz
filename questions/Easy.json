@@ -252,16 +252,6 @@
   {
     "difficulty": "Easy",
     "type": "short",
-    "prompt": "다음 JavaScript 코드의 출력은?",
-    "code": {
-      "lang": "javascript",
-      "text": "console.log(0.1 + 0.2 === 0.3);"
-    },
-    "answer": "false"
-  },
-  {
-    "difficulty": "Easy",
-    "type": "short",
     "prompt": "다음 Python 코드의 출력은?",
     "code": {
       "lang": "python",
